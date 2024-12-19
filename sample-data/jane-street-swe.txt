@@ -1,0 +1,16 @@
+Jane Street
+
+About the Position
+We're always hiring software engineers for all of our offices. Technology is at the core of how we approach our work, and engineers are intimately involved in every area of the business. 
+
+We are big believers in functional programming and use OCaml, a statically typed functional programming language, as our primary tool. More recently, Python has become a vital part of Jane Street’s research and trading work, acting as the go-to language for data analysis, visualization, and machine learning.
+
+We also believe in the value of open source software, using it in our daily work and releasing over a million lines of our own code as open source.
+
+About You
+- Top-notch programming skills
+- Deep experience with—and love for—technology. There's no specific checklist; we use software to approach a variety of problems, so we're interested in everything from machine learning to systems administration to programming language design
+- Strong interpersonal skills. Software engineering at Jane Street is highly collaborative, and we are looking for people who can work effectively in small, close-knit teams
+- We don’t expect you to have experience with functional programming, OCaml, Python, or finance; we’re happy to hire talented engineers and teach them what they need to know.
+
+If you'd like to get an idea of what we cover in our software engineering interview process, you can visit our interview prep page.

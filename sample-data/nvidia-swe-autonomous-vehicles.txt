@@ -1,0 +1,28 @@
+System Software Engineer Intern, Autonomous Vehicles Platform - 2025
+
+The Autonomous Vehicles Platform team is searching for engineers to develop and bring NVIDIA's automotive platform out to the world. You will participate in a focused effort to develop and productize ground-breaking solutions that will redefine the world of transportation and the growing field of self-driving cars. Work with hardworking and dedicated multi-functional engineering development teams across various vehicle subsystems to integrate their work into our autonomous driving DRIVE SW platform, while achieving or exceeding all meaningful NVIDIA and automotive standards & guidelines. You'll find the work is exciting, fun, and very meaningful. We have customers and competition.
+
+NVIDIA is a “learning machine” that constantly evolves by adapting to new opportunities that are hard to solve, that only we can pursue, and that matter to the world. This is our life’s work: to amplify human creativity and intelligence. NVIDIA is widely considered to be one of the technology world’s most desirable employers. We have some of the most brilliant and talented people in the world working for us. If you're creative, autonomous, and love a challenge, we would love to hear.
+
+What you'll be doing:
+- Design and implement Automotive Vehicles software platforms, including application design, kernel modifications/extensions, driver implementation/enhancement, system integration, performance optimization, stress/stability & tools development
+- Integrate the full-stack software including system software, AV application, DNN, and kernel together to build the start-of-art Automotive Vehicle platforms
+- Drive the reliability of the software platform, which includes Time sync, Vehicle Network, RADAR, LiDAR, Camera sensor processing, and fusion
+- Develop and maintain LLM based applications to serve AV platform, such as LLM based QA bot, debug tips etc.
+- Based on the industry's most advanced technology,  develop the massive data processing from autonomous driving
+- Triage the Automotive Vehicle Fleet issues and debug with the global team
+- Work in an environment that involves Linux & QNX RTOS
+
+What we need to see:
+- Pursuing BS or MS in CS/CE/EE or equivalent program. 
+- Experience in research and development of Deep Learning/Transformer/NLP/LLM technology
+- Excellent programming skills in some rapid prototyping environment such as Python/C/C++
+- Strong Linux kernel, application-level system software experience
+- Ability and flexibility to work and communicate effectively in a multinational, multi-time-zone corporate environment
+- Self-motivated and a good teammate
+
+Ways to stand out from the crowd:
+- Prior experience in the Automotive field
+- Background in QNX RTOS and debug tools. Worked with CAN and tools, RADAR, LiDAR
+- Gather knowhow on datasets for LLM training & evaluation.
+- Experience in developing and maintaining AI or machine learning infrastructure, preferably in the context of large language models.
