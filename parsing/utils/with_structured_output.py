@@ -1,10 +1,11 @@
 from ollama import chat
 from pydantic import BaseModel, RootModel
+import json
 
 def with_structured_output(
     prompt: str,
     schema: type[BaseModel] | type[RootModel],
-    model: str = "llama3.1") -> BaseModel | RootModel:
+    model: str = "llama3.1") -> dict:
     """
     Decodes the provided prompt using the specified model and validates the response against the given schema.
 
@@ -14,7 +15,7 @@ def with_structured_output(
         `model` (str, optional): The model to use. Defaults to "llama3.1".
 
     Returns:
-        BaseModel | RootModel: A Pydantic model containing the structured output.
+        dict: The formatted JSON output.
     """
     
     response = chat(
@@ -25,6 +26,10 @@ def with_structured_output(
                 "content": prompt
             }
         ],
-        format=schema.model_json_schema()
+        format=schema.model_json_schema(),
+        options={"temperature": 0}
     )
-    return schema.model_validate_json(response.message.content)
+    
+    schema.model_validate_json(response.message.content)
+    return json.loads(response.message.content)
+    
