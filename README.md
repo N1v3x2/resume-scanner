@@ -14,7 +14,7 @@ This is a tool to score resumes against a provided job description.
 8. Penalize resumes with typos
 
 ## To-Dos:
-- [ ] Figure out important features for resume scoring
+- [x] Figure out important features for resume scoring
 - [ ] Figure out how to parse important sections of job description (Qualifications, Preferred Experience, Education Requirements, etc.)
 - [ ] NER model for entity parsing?
 - [ ] Use resume dataset to train/fine-tune ML model? Need to evaluate effectiveness of rule-based system
