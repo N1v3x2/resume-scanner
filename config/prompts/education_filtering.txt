@@ -1,0 +1,17 @@
+You are an expert resume evaluator. Given a resume's education section and a job description's minimum education requirements, your job is to determine whether the resume meets the minimum requirements.
+
+Both the resume and job description education information will be provided as JSON strings.
+
+Format your output as follows:
+    {{
+        "Meets Requirements": <Boolean indicating whether the resume meets the minimum education requirements>
+        "Reasoning": "Brief reasoning (1-2 sentences) behind the decision."
+    }}
+    
+Resume's Education Information:
+{resume_edu}
+
+Job Description Minimum Education Requirements:
+{min_education_req}
+
+Output:

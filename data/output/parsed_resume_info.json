@@ -1,0 +1,125 @@
+{
+    "Education": [
+        {
+            "Name": "Texas A&M University",
+            "Majors": [
+                "BS in Computer Science"
+            ],
+            "Minors": [
+                "Statistics",
+                "Math"
+            ],
+            "Graduation Year": 2026,
+            "GPA": 4.0
+        }
+    ],
+    "Work Experience": {
+        "Experiences": [
+            {
+                "Company": "Full Stack Developer Intern",
+                "Role": "Full Stack Developer Intern",
+                "Contributions": [
+                    "Built CRM system with ASP.NET MVC serving 10 users, improving employee efficiency by 50%",
+                    "Optimized MySQL database performance by eliminating 1,000 duplicate records, improving query speed by 10%",
+                    "Designed scalable SQL database architecture to support complex entity relationships",
+                    "Created role-based authorization system with Entity Framework to facilitate project management for managers"
+                ]
+            },
+            {
+                "Company": "Software Engineering Intern",
+                "Role": "Software Engineering Intern",
+                "Contributions": [
+                    "Redesigned 30 year old Java data analysis suite architecture, cutting developer onboarding time by 3 weeks",
+                    "Used MATLAB profiler to find bottleneck in data preprocessing script, leading to 90% execution time reduction",
+                    "Built Java class to interface with Javalin REST API, enabling multithreaded network communication",
+                    "Reduced logic errors by 50% via integration and regression testing in Jenkins CI/CD pipeline"
+                ]
+            },
+            {
+                "Company": "AI/ML Intern",
+                "Role": "AI/ML Intern",
+                "Contributions": [
+                    "Developed knowledge graph (KG) generation pipeline with internal LLM microservices to allow multi-hop reasoning in 3-stage retrieval augmented generation (RAG) pipeline",
+                    "Extracted 30+ domain-specific seed topics from text corpus with BERTopic for KG subgraph creation",
+                    "Achieved100%schema-compliantLLMoutputsviaprompt engineering andgrammar-contrained decoding",
+                    "Packaged KG generation logic into reusable, object-oriented Python modules used by 30 developers"
+                ]
+            },
+            {
+                "Company": "Undergraduate Teaching Assistant",
+                "Role": "Undergraduate Teaching Assistant",
+                "Contributions": [
+                    "Leading data structures & algorithms recitations for 60 students semiweekly",
+                    "Mentoring 15+ students weekly in C++ assignments, leading to 80% reduction in assignment errors",
+                    "Teaching students core CS concepts including vectors, trees, graphs, sorting algorithms, and recursion"
+                ]
+            }
+        ],
+        "Total Years of Experience": 2.25
+    },
+    "Skills": {
+        "Technical Skills": [
+            "Python",
+            "Java",
+            "C/C++",
+            "TypeScript/JavaScript",
+            "C#",
+            "SQL",
+            "HTML/CSS",
+            "MATLAB",
+            "Bash",
+            "React",
+            "Bootstrap",
+            "Flask",
+            "JUnit",
+            "ASP.NET",
+            "Entity Framework",
+            "Spring Boot",
+            "Numpy",
+            "Pandas",
+            "Matplotlib",
+            "LangChain",
+            "OpenAI",
+            "Pydantic",
+            "TensorFlow",
+            "Linux",
+            "Git (GitHub, Gerrit)",
+            "Anaconda",
+            "Jupyter",
+            "Azure DevOps",
+            "Jenkins",
+            "Vim",
+            "Docker",
+            "PostgreSQL",
+            "MySQL",
+            "Neo4J"
+        ],
+        "Domain-Specific Skills": [
+            "Knowledge Graph (KG) generation pipeline",
+            "LLM microservices",
+            "Multi-hop reasoning in RAG pipeline",
+            "BERTopic for KG subgraph creation",
+            "Prompt engineering and grammar-constrained decoding",
+            "Object-oriented Python modules",
+            "Java data analysis suite architecture redesign",
+            "MATLAB profiler for bottleneck identification",
+            "Data preprocessing script optimization",
+            "Javalin REST API interface in Java",
+            "Multithreaded network communication",
+            "Integration and regression testing in Jenkins CI/CD pipeline",
+            "Data structures & algorithms recitations",
+            "Mentoring students in C++ assignments",
+            "Core CS concepts including vectors, trees, graphs, sorting algorithms, and recursion",
+            "CRM system with ASP.NET MVC",
+            "Scalable SQL database architecture",
+            "Role-based authorization system with Entity Framework",
+            "Chain-of-thought (CoT) recommendation prompt",
+            "LLM-based credit card recommendation system",
+            "JSON database containing statistics on 50 popular credit cards",
+            "Modular React components and application state management with React hooks",
+            "Google OAuth API integration for authentication/authorization",
+            "JDBC backend to query PostgreSQL database",
+            "Code review and reduction of code smells"
+        ]
+    }
+}

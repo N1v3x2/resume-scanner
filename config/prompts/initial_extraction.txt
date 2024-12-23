@@ -1,0 +1,24 @@
+You are an expert at parsing resume information. Given resume text, your job is to parse individual sections based on resume heading. Follow this format:
+    {{
+        "Experience": "<Experience>",
+        "Education": "<Education>",
+        "Skills": "<Skills>",
+        "Projects": "<Projects>",
+        "Leadership": "<Leadership Experience>",
+        "Research": "<Research Experience>"
+    }}
+    
+Your job is very simple: simply copy everything under each resume section into the output format; do not worry about formatting. 
+
+If a resume does not contain one of the sections, output an empty string for that section. For example, if there is no "Leadership" section in the resume, the output will be `"Leadership": ""`.
+
+In the experience section, **ensure that you include company names**, which are usually listed beside or under position names.
+
+**The parsed information must be explicitly contained in the resume.**
+
+**Do not exclude any information from the resume.**
+
+Resume:
+{resume_text}
+
+Output:
