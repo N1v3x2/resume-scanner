@@ -19,14 +19,22 @@ class Education(RootModel[list[School]]):
     pass
 
 class Experience(BaseModel):
-    company: str = Field(..., alias="Company")
-    role: str = Field(..., alias="Role")
-    contributions: list[str] = Field(..., alias="Contributions")
+    company: str                = Field(..., alias="Company")
+    role: str                   = Field(..., alias="Role")
+    contributions: list[str]    = Field(..., alias="Contributions")
     
 class Experiences(BaseModel):
-    experiences: list[Experience] = Field(..., alias="Experiences")
-    yoe: float = Field(..., alias="Total Years of Experience")
+    experiences: list[Experience]   = Field(..., alias="Experiences")
+    yoe: float                      = Field(..., alias="Total Years of Experience")
     
 class Skills(BaseModel):
-    technical_skills: list[str] = Field(..., alias="Technical Skills")
-    domain_specific_skills: list[str] = Field(..., alias="Domain-Specific Skills")
+    technical_skills: list[str]         = Field(..., alias="Technical Skills")
+    domain_specific_skills: list[str]   = Field(..., alias="Domain-Specific Skills")
+    
+class JobDescription(BaseModel):
+    required_skills: list[str]          = Field(..., alias="Required Skills")
+    preferred_skills: list[str]         = Field(..., alias="Preferred Skills")
+    required_experience: list[str]      = Field(..., alias="Required Experience")
+    preferred_experience: list[str]     = Field(..., alias="Preferred Experience")
+    required_education: list[str]       = Field(..., alias="Required Education")
+    preferred_education: list[str]      = Field(..., alias="Preferred Education")
