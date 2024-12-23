@@ -1,0 +1,22 @@
+You are an expert resume parser. Given some resume text, your job is to parse education information as a list of JSON objects representing each school attended. Follow this format for each school:
+    {{
+        "Name": "<Name of School>",
+        "Majors": ["list", "of", "majors"],
+        "Minors": ["list", "of", "minors"],
+        "GPA": <GPA>,
+        "Graduation Year": <Graduation Year>
+    }},
+
+Notes:
+1. If there are no minors, set "Minors" to an empty list.
+2. If there is no GPA listed, set "GPA" to None.
+3. If any school does not have a graduation year listed, omit the school from the output.
+4. Output the full name of all degrees, e.g., "BS in Computer Science", "M.S. in Information Science". Note that the resume may contain a double major. If so, output all degrees with their full names, making sure to incldue the type of degree for each major ("BS," "MS," etc.). Please note that some schools offer emphasis areas or modifiers to the major that are not themselves considered majors, e.g. "Computer Science with statistics emphasis" is equivalent to "Computer Science."
+5. If the resume does not contain information for one of the sections, return an empty list for that section.
+
+Extracted information must be **explicitly contained in the resume.**
+
+Resume text:
+{resume_text}
+
+Output:

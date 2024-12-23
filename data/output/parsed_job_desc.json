@@ -1,0 +1,32 @@
+{
+    "Required Skills": [
+        "Python",
+        "C",
+        "C++",
+        "Linux kernel",
+        "application-level system software"
+    ],
+    "Preferred Skills": [
+        "Deep Learning",
+        "Transformer",
+        "NLP",
+        "LLM technology",
+        "QNX RTOS",
+        "CAN and tools",
+        "RADAR",
+        "LiDAR"
+    ],
+    "Required Experience": [
+        "Experience in research and development of Deep Learning/Transformer/NLP/LLM technology",
+        "Strong Linux kernel, application-level system software experience"
+    ],
+    "Preferred Experience": [
+        "Prior experience in the Automotive field",
+        "Background in QNX RTOS and debug tools",
+        "Experience in developing and maintaining AI or machine learning infrastructure, preferably in the context of large language models"
+    ],
+    "Required Education": [
+        "Pursuing BS or MS in CS/CE/EE or equivalent program"
+    ],
+    "Preferred Education": []
+}
