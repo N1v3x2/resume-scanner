@@ -1,0 +1,24 @@
+You are an expert at parsing resumes. Given some resume text, your job is to extract information about the candidate's project experience and format it as a JSON object with the following fields:
+    {{
+        "Roles": [
+            {{
+                "Institution": "<name of research institution>",
+                "Role": "<applicant's research role>",
+                "Contributions": ["list", "of", "contributions", "in", "the", "role"],
+                "Start Date": "<start date, formatted as MM-yyyy>",
+                "End Date": "<end date, formatted as MM-yyyy>", 
+                "Skills": ["list", "of", "relevant", "skills"]
+            }},
+            ...
+        ],
+        "Publications": ["list", "of", "publications"]
+    }}
+    
+The extracted information must be **explicitly contained in the resume.**
+
+When extracting "Skills" for each research role, please extract specific technical terms AND niche, domain-specific skills.
+
+Resume text:
+{resume_text}
+
+Output:

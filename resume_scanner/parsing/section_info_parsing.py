@@ -2,41 +2,69 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from ..utils.with_structured_output import with_structured_output
-from .schemas import Education, Experiences, Skills
+from .schemas import Education, Experiences, Projects, Research, Leadership, Skills
 
-with open("../config/prompts/education_extraction.txt", "r") as file:
+with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/experience_extraction.txt", "r") as file:
+with open("../config/prompts/parsing/experience_extraction.txt", "r") as file:
     EXPERIENCE_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/skill_extraction.txt", "r") as file:
-    SKILL_EXTRACTION_TEMPLATE = file.read()
+with open("../config/prompts/parsing/projects_extraction.txt", "r") as file:
+    PROJECTS_EXTRACTION_TEMPLATE = file.read()
+with open("../config/prompts/parsing/leadership_extraction.txt", "r") as file:
+    LEADERSHIP_EXTRACTION_TEMPLATE = file.read()
+with open("../config/prompts/parsing/research_extraction.txt", "r") as file:
+    RESEARCH_EXTRACTION_TEMPLATE = file.read()
+with open("../config/prompts/parsing/skills_extraction.txt", "r") as file:
+    SKILLS_EXTRACTION_TEMPLATE = file.read()
 
-def parse_section_info(parsed_resume_sections: dict) -> dict:
+def parse_section_info(resume_sections: dict) -> dict:
     parsed_info = {}
     
     with ThreadPoolExecutor() as executor:
-        futures = {
-            executor.submit(
+        futures = {}
+        
+        if resume_sections["Education"]:
+            futures[executor.submit(
                 with_structured_output,
-                prompt=EDUCATION_EXTRACTION_TEMPLATE.format(resume_text=parsed_resume_sections["Education"]), 
+                prompt=EDUCATION_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Education"]), 
                 schema=Education
-            ) : "Education",
-            executor.submit(
+            )] = "Education"
+        
+        if resume_sections["Experience"]:
+            futures[executor.submit(
                 with_structured_output,
-                prompt=EXPERIENCE_EXTRACTION_TEMPLATE.format(resume_text=parsed_resume_sections["Experience"]),
+                prompt=EXPERIENCE_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Experience"]),
                 schema=Experiences
-            ) : "Work Experience",
-            executor.submit(
+            )] = "Work Experience"
+        
+        if resume_sections["Projects"]:
+            futures[executor.submit(
                 with_structured_output,
-                prompt=SKILL_EXTRACTION_TEMPLATE.format(
-                    resume_text=parsed_resume_sections["Experience"]
-                        + parsed_resume_sections["Projects"]
-                        + parsed_resume_sections["Skills"]
-                        + parsed_resume_sections["Research"]
-                        + parsed_resume_sections["Leadership"]),
+                prompt=PROJECTS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Projects"]),
+                schema=Projects
+            )] = "Projects"
+        
+        if resume_sections["Leadership"]:
+            futures[executor.submit(
+                with_structured_output,
+                prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Leadership"]),
+                schema=Leadership
+            )] = "Leadership"
+        
+        if resume_sections["Research"]:
+            futures[executor.submit(
+                with_structured_output,
+                prompt=RESEARCH_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Research"]),
+                schema=Research
+            )] = "Research"
+            
+        if resume_sections["Skills"]:
+            futures[executor.submit(
+                with_structured_output,
+                prompt=SKILLS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Skills"]),
                 schema=Skills
-            ) : "Skills"
-        }
+            )] = "Skills"
+        
         for future in as_completed(futures):
             try:
                 category = futures[future]

@@ -1,0 +1,13 @@
+You are an expert at parsing resumes. Given some resume text, your job is to extract information about the candidate's leadership experience and format it as a list of JSON objects, where each object has the following format:
+    {{
+        "Organization": "<name of organization>",
+        "Role": "<applicant's role at organization>",
+        "Contributions": ["list", "of", "contributions", "in", "the", "position"]
+    }}
+    
+The extracted information must be **explicitly contained in the resume.**
+
+Resume text:
+{resume_text}
+
+Output:

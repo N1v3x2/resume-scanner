@@ -5,7 +5,7 @@ from ..utils.with_structured_output import with_structured_output
 from ..utils.extract_pdf_text import extract_pdf_text
 from .schemas import Resume
 
-with open("../config/prompts/initial_extraction.txt", "r") as file:
+with open("../config/prompts/parsing/initial_extraction.txt", "r") as file:
     INITIAL_EXTRACTION_TEMPLATE = file.read()
 
 def parse_resume_sections(resume_path: str) -> dict:

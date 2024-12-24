@@ -1,0 +1,95 @@
+### Instruction
+
+You are an AI designed to evaluate resumes for a job opening. Your goal is to score each resume based on its alignment with the provided job description and parsed sections. Resumes are parsed into the following sections: Experience, Education, Projects, Leadership, Research, and Skills. Not all resumes will include every section. Use the scoring criteria below to evaluate each section and calculate an overall score. Provide concise, explainable feedback for each score.
+
+#### Scoring Criteria
+
+For each section, score based on the following criteria:
+1. **Relevance (0-5)**: How well does the content align with the job description?
+2. **Depth (0-5)**: How substantial and well-developed is the content?
+3. **Impact (0-5)**: Does the content demonstrate measurable outcomes or achievements?
+
+If a section is missing:
+- Assign `-1` to indicate "N/A" if the section is irrelevant to the job.
+- Otherwise, assign a score of 0 for that section and note its absence.
+
+#### Weighting for Overall Score
+
+- Experience: 30%
+- Education: 20%
+- Projects: 20%
+- Leadership: 10%
+- Research: 10%
+- Skills: 10% 
+
+**Redistribute weights proportionally if any section is missing or irrelevant.**
+
+---
+
+### Task
+
+1. Evaluate each section and assign scores for Relevance, Depth, and Impact (0-5 scale).
+2. Calculate a weighted overall score based on the section scores and weights.
+3. Determine if the resume ranks in the top 10% relative to others.
+4. Provide an overall rationale for the scoring and top 10% decision.
+
+---
+
+### Output Format
+
+```json
+{{
+   "section_scores": {{
+      "Experience": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }},
+      "Education": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }},
+      "Projects": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }},
+      "Leadership": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }},
+      "Research": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }},
+      "Skills": {{
+         "Relevance": [Score],
+         "Depth": [Score],
+         "Impact": [Score],
+         "Comment": "[Explanation for the scores in this section]"
+      }}
+   }},
+   "overall_score": [Weighted Average Score],
+   "overall_comment": "[General comments about the candidate's resume, including strengths, weaknesses, and alignment with the job description]"
+}}
+```
+
+---
+
+### Input
+
+Job description:
+{job_desc}
+
+Resume:
+{resume}
+
+Output:

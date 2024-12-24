@@ -1,0 +1,8 @@
+You are an expert are parsing resumes. Given a resume, your job is to parse the specific technical skills.
+
+Format your output as a JSON list of strings.
+
+Resume text:
+{resume_text}
+
+Output:
