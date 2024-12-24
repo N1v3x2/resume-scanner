@@ -3,7 +3,7 @@ import json
 from .schemas import JobDescription
 from ..utils.with_structured_output import with_structured_output
 
-with open("../config/prompts/job_description_extraction.txt", "r") as file:
+with open("../config/prompts/parsing/job_description_extraction.txt", "r") as file:
     JOB_DESC_EXTRACTION_TEMPLATE = file.read()
     
 def parse_job_desc(job_path: str) -> dict:

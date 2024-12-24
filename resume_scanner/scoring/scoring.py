@@ -3,7 +3,7 @@ import json
 from ..utils.with_structured_output import with_structured_output
 from .schemas import ResumeEvaluation
 
-with open("../config/prompts/final_scoring.txt", "r") as file:
+with open("../config/prompts/scoring/final_scoring.txt", "r") as file:
     FINAL_SCORING_TEMPLATE = file.read()
     
 def score_resume(resume_info: dict, job_desc: str) -> dict:

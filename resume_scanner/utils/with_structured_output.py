@@ -27,7 +27,10 @@ def with_structured_output(
             }
         ],
         format=schema.model_json_schema(),
-        options={"temperature": 0}
+        options={
+            "temperature": 0,
+            "num_ctx": 4096
+        }
     )
     
     schema.model_validate_json(response.message.content)

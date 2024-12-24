@@ -4,7 +4,9 @@ You are an expert resume parser. Given some resume text, your job is to parse ed
         "Majors": ["list", "of", "majors"],
         "Minors": ["list", "of", "minors"],
         "GPA": <GPA>,
-        "Graduation Year": <Graduation Year>
+        "Graduation Year": <Graduation Year>,
+        "Honors": ["list", "of", "honors"],
+        "Coursework": ["list", "of", "coursework"]
     }},
 
 Notes:
