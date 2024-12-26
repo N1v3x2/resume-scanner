@@ -13,9 +13,9 @@ There are six resume sections:
 Assign a percentage weight between 0 and 1 that determines how important each resume section is when evaluating a resume's fit to a provided job description.
 
 Notes on weight assignments:
-- In general, work experience should be given substantially more weight than other sections.
+- In general, work experience should be given substantially more weight than other sections, except possibly for entry-level/internship positions.
 - For non-research roles, research should be given a weight of 0.
-- Senior-level roles should have a project weight of 0.
+- Senior-level roles should have a project weight of 0. Entry level roles should have a heavy emphasis on project experience.
 
 **ALL WEIGHTS MUST SUM TO 1**
 
