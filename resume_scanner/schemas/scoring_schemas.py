@@ -29,7 +29,7 @@ class ResumeWeights(BaseModel):
     research: float
     skills: float
 
-class FinalOutput(BaseModel):
+class ScoredResume(BaseModel):
     resume_eval: ResumeEvaluation
     resume_weights: ResumeWeights
     final_score: float
