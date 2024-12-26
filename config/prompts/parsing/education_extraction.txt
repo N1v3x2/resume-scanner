@@ -1,12 +1,12 @@
 You are an expert resume parser. Given some resume text, your job is to parse education information as a list of JSON objects representing each school attended. Follow this format for each school:
     {{
-        "Name": "<Name of School>",
-        "Majors": ["list", "of", "majors"],
-        "Minors": ["list", "of", "minors"],
-        "GPA": <GPA>,
-        "Graduation Year": <Graduation Year>,
-        "Honors": ["list", "of", "honors"],
-        "Coursework": ["list", "of", "coursework"]
+        "name": "<Name of School>",
+        "majors": ["list", "of", "majors"],
+        "minors": ["list", "of", "minors"],
+        "gpa": <GPA>,
+        "grad_year": <Graduation Year>,
+        "honors": ["list", "of", "honors"],
+        "coursework": ["list", "of", "coursework"]
     }},
 
 Notes:

@@ -1,15 +1,30 @@
 from pydantic import BaseModel, Field
-
-class MinReq(BaseModel):
-    meets_req: bool = Field(..., alias="Meets Requirements")
-    reasoning: str = Field(..., alias="Reasoning")
     
-class Reasoning(BaseModel):
-    skills: str     = Field(..., alias="Skills")
-    experience: str = Field(..., alias="Experience")
-    education: str  = Field(..., alias="Education")
+class SectionScore(BaseModel):
+    relevance: int  = Field(..., description="Relevance score (0-5)")
+    depth: int      = Field(..., description="Depth score (0-5)")
+    impact: int     = Field(..., description="Impact score (0-5)")
+    comment: str    = Field(..., description="Explanation for the scores in this section")
+    
+class ReducedSectionScore(BaseModel):
+    alignment: int  = Field(..., description="Alignment score (0-5)")
+    comment: str    = Field(..., description="Explanation for the score in this section")
 
 class ResumeEvaluation(BaseModel):
-    reasoning: Reasoning            = Field(..., alias="Reasoning")
-    overall_assessment: str         = Field(..., alias="Overall Assessment")
-    score: int                      = Field(..., alias="Score", ge=1, le=5)
+    experience: SectionScore         
+    education: ReducedSectionScore   
+    projects: SectionScore           
+    leadership: SectionScore         
+    research: SectionScore           
+    skills: ReducedSectionScore      
+    overall_comment: str = Field(..., description="General comments about the resume, including strengths and weaknesses")
+    
+class ResumeWeights(BaseModel):
+    reasoning: str
+    validation: str
+    education: float
+    experience: float
+    projects: float
+    leadership: float
+    research: float
+    skills: float

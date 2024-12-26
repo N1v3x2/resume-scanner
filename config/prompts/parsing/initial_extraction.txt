@@ -1,11 +1,11 @@
 You are an expert at parsing resume information. Given resume text, your job is to parse individual sections based on resume heading. Follow this format:
     {{
-        "Experience": "<Experience>",
-        "Education": "<Education>",
-        "Skills": "<Skills>",
-        "Projects": "<Projects>",
-        "Leadership": "<Leadership Experience>",
-        "Research": "<Research Experience>"
+        "experience": "<Experience>",
+        "education": "<Education>",
+        "skills": "<Skills>",
+        "projects": "<Projects>",
+        "leadership": "<Leadership Experience>",
+        "research": "<Research Experience>"
     }}
     
 Your job is very simple: simply copy everything under each resume section into the output format; do not worry about formatting. 

@@ -1,8 +1,9 @@
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from pydantic import BaseModel, RootModel
 
-from ..utils.with_structured_output import with_structured_output
-from .schemas import Education, Experiences, Projects, Research, Leadership, Skills
+from ..utils.decode import decode_with_ollama
+from .schemas import Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
 
 with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
@@ -17,62 +18,62 @@ with open("../config/prompts/parsing/research_extraction.txt", "r") as file:
 with open("../config/prompts/parsing/skills_extraction.txt", "r") as file:
     SKILLS_EXTRACTION_TEMPLATE = file.read()
 
-def parse_section_info(resume_sections: dict) -> dict:
-    parsed_info = {}
+def parse_section_info(resume_sections: (BaseModel | RootModel)) -> (BaseModel | RootModel):
+    parsed_info = ResumeInfo()
     
     with ThreadPoolExecutor() as executor:
         futures = {}
         
-        if resume_sections["Education"]:
+        if resume_sections.education:
             futures[executor.submit(
-                with_structured_output,
-                prompt=EDUCATION_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Education"]), 
+                decode_with_ollama,
+                prompt=EDUCATION_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.education), 
                 schema=Education
-            )] = "Education"
+            )] = "education"
         
-        if resume_sections["Experience"]:
+        if resume_sections.experience:
             futures[executor.submit(
-                with_structured_output,
-                prompt=EXPERIENCE_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Experience"]),
+                decode_with_ollama,
+                prompt=EXPERIENCE_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.experience),
                 schema=Experiences
-            )] = "Work Experience"
+            )] = "experience"
         
-        if resume_sections["Projects"]:
+        if resume_sections.projects:
             futures[executor.submit(
-                with_structured_output,
-                prompt=PROJECTS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Projects"]),
+                decode_with_ollama,
+                prompt=PROJECTS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.projects),
                 schema=Projects
-            )] = "Projects"
+            )] = "projects"
         
-        if resume_sections["Leadership"]:
+        if resume_sections.leadership:
             futures[executor.submit(
-                with_structured_output,
-                prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Leadership"]),
+                decode_with_ollama,
+                prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.leadership),
                 schema=Leadership
-            )] = "Leadership"
+            )] = "leadership"
         
-        if resume_sections["Research"]:
+        if resume_sections.research:
             futures[executor.submit(
-                with_structured_output,
-                prompt=RESEARCH_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Research"]),
+                decode_with_ollama,
+                prompt=RESEARCH_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.research),
                 schema=Research
-            )] = "Research"
+            )] = "research"
             
-        if resume_sections["Skills"]:
+        if resume_sections.skills:
             futures[executor.submit(
-                with_structured_output,
-                prompt=SKILLS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections["Skills"]),
+                decode_with_ollama,
+                prompt=SKILLS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.skills),
                 schema=Skills
-            )] = "Skills"
+            )] = "skills"
         
         for future in as_completed(futures):
             try:
-                category = futures[future]
-                parsed_info[category] = future.result(timeout=80)
+                section = futures[future]
+                setattr(parsed_info, section, future.result(timeout=60))
             except Exception as e:
                 print(f"Error when parsing resume section info: {e}")
     
     with open("../data/output/parsed_resume_info.json", "w") as file:
-        json.dump(parsed_info, file, indent=4)
+        json.dump(parsed_info.model_dump(), file, indent=4)
     
     return parsed_info
