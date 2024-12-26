@@ -1,9 +1,8 @@
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from pydantic import BaseModel, RootModel
 
 from ..utils.decode import decode_with_ollama
-from .schemas import Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
+from ..schemas.parsing_schemas import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
 
 with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
@@ -18,12 +17,12 @@ with open("../config/prompts/parsing/research_extraction.txt", "r") as file:
 with open("../config/prompts/parsing/skills_extraction.txt", "r") as file:
     SKILLS_EXTRACTION_TEMPLATE = file.read()
 
-def parse_section_info(resume_sections: (BaseModel | RootModel)) -> (BaseModel | RootModel):
+def parse_section_info(resume_sections: Resume) -> ResumeInfo:
     parsed_info = ResumeInfo()
     
     with ThreadPoolExecutor() as executor:
         futures = {}
-        
+
         if resume_sections.education:
             futures[executor.submit(
                 decode_with_ollama,
