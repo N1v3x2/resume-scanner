@@ -1,0 +1,26 @@
+You are an expert at parsing resumes. Given some resume text, your job is to extract information about the candidate's work experience and format it as a list of JSON objects:
+    {{
+        "Roles": [
+            {{
+                "company": "<company>",
+                "role": "<applicant's role at the company>",
+                "contributions": ["list", "of", "contributions", "in", "the", "role"],
+                "start_date": "<start date, formatted as MM-yyyy>",
+                "end_Date": "<end date, formatted as MM-yyyy>", 
+                "skills": ["list", "of", "relevant", "skills"]
+            }},
+            ...
+        ],
+        "YOE": <Total Years of Experience> 
+    }}
+    
+The extracted information must be **explicitly contained in the resume.**
+
+Calculate "YOE" by summing up the duration of all experiences, rounded to the nearest quarter-year. **Note that overlapping timeframes should not double-counted.**
+
+When extracting "Skills" for each role, please extract specific technical terms AND niche, domain-specific skills.
+
+Resume text:
+{resume_text}
+
+Output:
