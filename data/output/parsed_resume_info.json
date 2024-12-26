@@ -3,146 +3,181 @@
         {
             "name": "Texas A&M University",
             "majors": [
-                "Bachelor of Science in Computer Science"
+                "B.S. in Computer Science"
             ],
             "minors": [],
             "gpa": null,
-            "grad_year": 2026,
+            "grad_year": 2025,
             "honors": [
-                "Engineering Academic Excellence Award",
-                "Jeffrey John Becker '82 Scholarship"
+                "Dean's List",
+                "Dean's Excellence Award",
+                "Honorable Mention",
+                "NTSE Scholar",
+                "TCS IT Wiz National Winner"
             ],
             "coursework": [
-                "Software Engineering",
-                "Data Structures & Algorithms",
-                "Computer Systems",
-                "Computer Architecture",
-                "Discrete Math",
-                "Linear Algebra",
-                "Calculus III"
+                "Financial Math",
+                "Machine Learning",
+                "Distributed Systems",
+                "Probability",
+                "Software Development"
             ]
         }
     ],
     "experience": {
         "roles": [
             {
-                "company": "Qatar Computing Research Institute",
-                "role": "Artificial Intelligence Intern",
+                "company": "DIVE (Data Integration Visualization and Exploration) Lab",
+                "role": "Undergraduate Researcher",
                 "contributions": [
-                    "Optimized machine learning models (Inception v3, EfficientNet, ResNet) on a dataset of 60,000+ images for DNA Enhancer Sequence Prediction, achieving 98.8% testing accuracy on unseen data.",
-                    "Conducted extensive experiments comparing the accuracy of different models and tuning various hyperparameters to enhance overall model performance.",
-                    "Applied advanced image processing techniques (movement probability matrix, wave transforms) to enhance model generalizability while maintaining high performance."
+                    "Enhanced the QHNet model\u2019s Hamiltonian matrix predictions by experimenting with various radial basis functions, leading to a 5% increase in model accuracy and efficiency in material property simulations.",
+                    "Currently tying to utilize OMat24 for material property prediction to support novel materials research, facilitating faster identification of viable compounds for engineering applications."
+                ],
+                "start_date": "08-2024",
+                "end_date": "Present",
+                "skills": [
+                    "radial basis functions",
+                    "material property simulations",
+                    "OMat24"
+                ]
+            },
+            {
+                "company": "Jane Street Capital",
+                "role": "Trading Desk Operations Engineering Intern",
+                "contributions": [
+                    "Formulated and implemented a consensus algorithm that improved system performance by 50 times, significantly enhancing data retrieval and analysis processes.",
+                    "Developed an automation tool that accelerated email processing, handling tasks from extraction to error reporting.",
+                    "Enhanced the Python library for calculating Greeks on the Options Desk, improving the efficiency of options pricing."
                 ],
                 "start_date": "05-2024",
-                "end_date": "07-2024",
+                "end_date": "08-2024",
                 "skills": [
-                    "machine learning",
-                    "image processing",
-                    "hyperparameter tuning"
+                    "consensus algorithm",
+                    "Python library for calculating Greeks"
                 ]
             },
             {
-                "company": "Qatar Computing Research Institute",
-                "role": "Arabic Language Technologies Intern",
+                "company": "SRL (Sketch Recognition Lab)",
+                "role": "Undergraduate Research Scholar",
                 "contributions": [
-                    "Trained and tested 10+ Machine Learning models on a 30,000+ Arabic news articles to evaluate the factual accuracy of user claims.",
-                    "Utilized the company\u2019s web API for lemmatization and spell checking during data preprocessing.",
-                    "Developed an application using React and Flask, providing an intuitive user interface for users to interact with the machine learning models."
-                ],
-                "start_date": "05-2023",
-                "end_date": "07-2023",
-                "skills": [
-                    "machine learning",
-                    "natural language processing",
-                    "web development"
-                ]
-            },
-            {
-                "company": "Department of Engineering",
-                "role": "Python Course Peer Teacher",
-                "contributions": [
-                    "Assisted the professor in teaching 100+ students Python through small group sessions, explaining key concepts in the context of lab assignments.",
-                    "Led office hours, assisting multiple students in debugging their code simultaneously, and enhancing their problem-solving skills in Python"
+                    "Integrated genetics and machine learning to enhance early detection of Alzheimer\u2019s disease (AD).",
+                    "Identified the most important Single Nucleotide Polymorphisms (SNPs) from a pool of over 700k SNPs.",
+                    "Employed Explainable AI techniques like LIME and SHAP to elucidate the rationale behind identified features."
                 ],
                 "start_date": "08-2023",
-                "end_date": "12-2023",
+                "end_date": "05-2024",
                 "skills": [
-                    "python teaching",
-                    "peer mentoring"
+                    "genetics",
+                    "machine learning",
+                    "LIME",
+                    "SHAP"
+                ]
+            },
+            {
+                "company": "Renesas Electronics",
+                "role": "Software Engineering Intern",
+                "contributions": [
+                    "Worked with an Agile team on a mission-critical project, meeting tight deadlines with precision and excellence.",
+                    "Developed and implemented a robust automation solution which detected 91 errors in configurations.",
+                    "Collaborated in the development of software which helped make validation of chips 4 times faster."
+                ],
+                "start_date": "05-2023",
+                "end_date": "08-2023",
+                "skills": [
+                    "Agile team",
+                    "automation solution"
+                ]
+            },
+            {
+                "company": "JFF (Jobs For Future)",
+                "role": "Data Science Intern",
+                "contributions": [
+                    "Employed advanced NLP algorithms to effectively cluster and integrate data, resulting in the development of a robust data integration tool for a large-scale database comprising over 75,000 entries.",
+                    "Spearheaded the design and development of a user-friendly Sharepoint web application to enhance data accessibility.",
+                    "Conducted analysis of data sources, ensuring credibility, by employing comprehensive SQL querying techniques."
+                ],
+                "start_date": "05-2022",
+                "end_date": "08-2022",
+                "skills": [
+                    "NLP algorithms",
+                    "SQL querying techniques"
                 ]
             }
         ],
-        "yoe": 1.25
+        "yoe": 1.75
     },
     "projects": [
         {
-            "name": "Pandas POS System",
+            "name": "Pop Tac Toe AI Bots",
             "contributions": [
-                "Developing a POS system for Pandas that is compliant with WCAG 2.1 accessibility standards using React for the frontend and Django for the backend, connected to AWS.",
-                "Implementing the Agile development methodology, focusing on usability testing and accessibility, while creating a multi-user application with interfaces for managers, cashiers, and customers via a self-service kiosk.",
-                "Integrating third-party APIs, including Google OAuth2 for authentication, Google Translate for translation, and a weather service to enhance the user experience."
+                "Built AI bots to compete in Pop Tac Toe, a two-player 8x8 grid game.",
+                "Made bots using heuristics, minimax with alpha-beta pruning, and reinforcement learning to find the best move.",
+                "Created a bot combining heuristics and minimax to avoid losses."
             ],
             "skills": [
-                "React",
-                "Django",
-                "AWS",
-                "Agile development methodology",
-                "WCAG 2.1 accessibility standards"
+                "Heuristics",
+                "Minimax with alpha-beta pruning",
+                "Reinforcement learning"
             ]
         },
         {
-            "name": "Students For Refugees Website",
+            "name": "Embedding Crackers",
             "contributions": [
-                "Developed and maintained the StudentsForRefugees.org website using React JS and Tailwind CSS, serving as a central hub for information, events, and updates for the organization\u2019s 10+ branches.",
-                "Integrated a backend in Go, making API calls to Google Drive and Google Calendar, as well as integrating Stripe for donations, successfully raising over $1000."
+                "Designed an algorithm using K-means clustering to analyze and cluster the embeddings of news articles.",
+                "Implemented the algorithm to find the most relevant topic label by comparing the cosine similarity of two articles.",
+                "Used the algorithm to predict 5 mystery articles topic labels and content."
             ],
             "skills": [
-                "React JS",
-                "Tailwind CSS",
-                "Go",
-                "Google Drive",
-                "Google Calendar",
-                "Stripe"
+                "K-means clustering",
+                "Cosine similarity"
+            ]
+        },
+        {
+            "name": "Not Another Driver",
+            "contributions": [
+                "Created an app to encourage safe driving practices using NodeJS.",
+                "Used computer vision to detect overspeeding, sudden braking, and following distance of a car using the phone camera.",
+                "The app provides a score based on your driving practices and motivates people to drive better."
+            ],
+            "skills": [
+                "NodeJS",
+                "Computer vision"
             ]
         }
     ],
     "leadership": {
-        "org": "Students For Refugees",
-        "role": "Head Developer",
+        "org": "Aggie Competitive Programming Club",
+        "role": "Logistics Officer",
         "contributions": [
-            "Manage the Google Nonprofit Workspace, overseeing user account creation, drive management, and overall administration of Google Workspace services, including access control, data storage policies, and app integration.",
-            "Organized and supervised 10+ multi-branch events in the Houston metropolitan area, including food drives, health fairs, and mental health awareness campaigns for refugees."
+            "Successfully manage logistics for meetings and contests",
+            "Securing over $7000 in funding for club events"
         ]
     },
-    "research": null,
+    "research": {
+        "roles": [
+            {
+                "institution": "Undergraduate Research Scholars Program",
+                "role": "Research Scholar",
+                "contributions": [],
+                "start_date": "",
+                "end_date": "",
+                "skills": []
+            }
+        ],
+        "publications": [
+            "Enhancing Brain Cognitive Deterioration Analysis Using Machine Learning"
+        ]
+    },
     "skills": [
         "Python",
-        "Java",
-        "JavaScript",
+        "OpenCV",
+        "Pandas",
+        "NumPy",
         "C++",
-        "Go",
-        "SQL",
-        "R",
-        "HTML",
-        "CSS",
-        "React",
-        "Node.js",
-        "Express.js",
-        "Django",
-        "Flask",
-        "Selenium",
-        "JavaFX",
-        "PyTorch",
-        "Tailwind CSS",
-        "Agile",
-        "Waterfall",
-        "Git",
-        "AWS",
-        "Linux",
-        "PostgreSQL",
-        "VS Code",
-        "PyCharm",
-        "IntelliJ",
-        "Oracle VM VirtualBox"
+        "gRPC",
+        "MapReduce",
+        "ZooKeeper",
+        "GFS",
+        "PyTorch"
     ]
 }
