@@ -2,12 +2,12 @@ You are an expert at parsing resumes. Given some resume text, your job is to ext
     {{
         "Roles": [
             {{
-                "Company": "<company>",
-                "Role": "<applicant's role at the company>",
-                "Contributions": ["list", "of", "contributions", "in", "the", "role"],
-                "Start Date": "<start date, formatted as MM-yyyy>",
-                "End Date": "<end date, formatted as MM-yyyy>", 
-                "Skills": ["list", "of", "relevant", "skills"]
+                "company": "<company>",
+                "role": "<applicant's role at the company>",
+                "contributions": ["list", "of", "contributions", "in", "the", "role"],
+                "start_date": "<start date, formatted as MM-yyyy>",
+                "end_Date": "<end date, formatted as MM-yyyy>", 
+                "skills": ["list", "of", "relevant", "skills"]
             }},
             ...
         ],

@@ -1,77 +1,77 @@
-from pydantic import BaseModel, RootModel, Field
-
-# Job Description
-class JobDescription(BaseModel):
-    required_skills: list[str]          = Field(..., alias="Required Skills")
-    preferred_skills: list[str]         = Field(..., alias="Preferred Skills")
-    required_experience: list[str]      = Field(..., alias="Required Experience")
-    preferred_experience: list[str]     = Field(..., alias="Preferred Experience")
-    required_education: list[str]       = Field(..., alias="Required Education")
-    preferred_education: list[str]      = Field(..., alias="Preferred Education")
+from pydantic import BaseModel, RootModel
 
 # Initial resume section parsing
 class Resume(BaseModel):
-    education: str  = Field(..., alias="Education")
-    experience: str = Field(..., alias="Experience")
-    projects: str   = Field(..., alias="Projects")
-    leadership: str = Field(..., alias="Leadership")
-    research: str   = Field(..., alias="Research")
-    skills: str     = Field(..., alias="Skills")
+    education: str
+    experience: str
+    projects: str
+    leadership: str
+    research: str
+    skills: str
     
 # Education
 class School(BaseModel):
-    name: str               = Field(..., alias="Name")
-    majors: list[str]       = Field(..., alias="Majors")
-    minors: list[str]       = Field(..., alias="Minors")
-    gpa: float              = Field(None, alias="GPA")
-    grad_year: int          = Field(..., alias="Graduation Year")
-    honors: list[str]       = Field(..., alias="Honors")
-    coursework: list[str]   = Field(..., alias="Coursework")
+    name: str
+    majors: list[str]
+    minors: list[str]
+    gpa: float = None
+    grad_year: int
+    honors: list[str]
+    coursework: list[str]
 
 class Education(RootModel[list[School]]):
     pass
 
 # Experience
 class Experience(BaseModel):
-    company: str                = Field(..., alias="Company")
-    role: str                   = Field(..., alias="Role")
-    contributions: list[str]    = Field(..., alias="Contributions")
-    start_date: str             = Field(..., alias="Start Date")
-    end_date: str               = Field(..., alias="End Date")
-    skills: list[str]           = Field(..., alias="Skills")
+    company: str
+    role: str
+    contributions: list[str]
+    start_date: str
+    end_date: str
+    skills: list[str]
     
 class Experiences(BaseModel):
-    roles: list[Experience] = Field(..., alias="Roles")
-    yoe: float              = Field(..., alias="YOE")
+    roles: list[Experience]
+    yoe: float
     
 # Projects
 class Project(BaseModel):
-    name: str                   = Field(..., alias="Name")
-    contributions: list[str]    = Field(..., alias="Contributions")
-    skills: list[str]           = Field(..., alias="Skills")
+    name: str
+    contributions: list[str]
+    skills: list[str]
     
 class Projects(RootModel[list[Project]]):
     pass
 
 # Leadership
 class Leadership(BaseModel):
-    org: str                    = Field(..., alias="Organization")
-    role: str                   = Field(..., alias="Role")
-    contributions: list[str]    = Field(..., alias="Contributions")
+    org: str
+    role: str
+    contributions: list[str]
     
 # Research
 class ResearchRole(BaseModel):
-    institution: str            = Field(..., alias="Institution")
-    role: str                   = Field(..., alias="Role")
-    contributions: list[str]    = Field(..., alias="Contributions")
-    start_date: str             = Field(..., alias="Start Date")
-    end_date: str               = Field(..., alias="End Date")
-    skills: list[str]           = Field(..., alias="Skills")
+    institution: str
+    role: str
+    contributions: list[str]
+    start_date: str
+    end_date: str
+    skills: list[str]
     
 class Research(BaseModel):
-    roles: list[ResearchRole]   = Field(..., alias="Roles")
-    publications: list[str]     = Field(..., alias="Publications")
+    roles: list[ResearchRole]
+    publications: list[str]
 
 # Skills
 class Skills(RootModel[list[str]]):
     pass
+
+# Final parsed resume info
+class ResumeInfo(BaseModel):
+    education: Education | None = None
+    experience: Experiences | None = None
+    projects: Projects | None = None
+    leadership: Leadership | None = None
+    research: Research | None = None
+    skills: Skills | None = None

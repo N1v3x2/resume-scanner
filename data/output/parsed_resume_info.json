@@ -1,187 +1,148 @@
 {
-    "Education": [
+    "education": [
         {
-            "Name": "Texas A&M University",
-            "Majors": [
-                "BS in Computer Science"
+            "name": "Texas A&M University",
+            "majors": [
+                "Bachelor of Science in Computer Science"
             ],
-            "Minors": [
-                "Statistics",
-                "Math"
+            "minors": [],
+            "gpa": null,
+            "grad_year": 2026,
+            "honors": [
+                "Engineering Academic Excellence Award",
+                "Jeffrey John Becker '82 Scholarship"
             ],
-            "Graduation Year": 2026,
-            "Honors": [
-                "Dean\u2019s Honor Roll",
-                "Engineering Honors (EH)",
-                "Dean\u2019s Excellence Award Semi-finalist"
-            ],
-            "Coursework": [
-                "Data Structures & Algorithms",
+            "coursework": [
                 "Software Engineering",
+                "Data Structures & Algorithms",
                 "Computer Systems",
+                "Computer Architecture",
                 "Discrete Math",
-                "Linear Algebra"
+                "Linear Algebra",
+                "Calculus III"
             ]
         }
     ],
-    "Skills": [
-        "Java",
-        "Python",
-        "C/C++",
-        "TypeScript/JavaScript",
-        "C#",
-        "SQL",
-        "HTML/CSS",
-        "MATLAB",
-        "Bash",
-        "React",
-        "Bootstrap",
-        "Flask",
-        "JUnit",
-        "ASP.NET",
-        "Entity Framework",
-        "Spring Boot",
-        "Numpy",
-        "Pandas",
-        "Matplotlib",
-        "LangChain",
-        "OpenAI",
-        "Pydantic",
-        "TensorFlow",
-        "Linux",
-        "Git",
-        "Anaconda",
-        "Jupyter",
-        "Azure DevOps",
-        "Jenkins",
-        "Vim",
-        "Docker",
-        "PostgreSQL",
-        "MySQL",
-        "Neo4J"
-    ],
-    "Projects": [
-        {
-            "Name": "Credit Card Recommender (Best Financial Hack)",
-            "Contributions": [
-                "Developed LLM-based credit card recommendation system",
-                "Devised chain-of-thought (CoT) recommendation prompt",
-                "Augmented recommendations with self-curated JSON database"
-            ],
-            "Skills": [
-                "Python",
-                "Jupyter",
-                "Flask",
-                "React",
-                "LangChain"
-            ]
-        },
-        {
-            "Name": "Point of Sales System",
-            "Contributions": [
-                "Designed modular React components and managed application state",
-                "Orchestrated integration of Google OAuth API",
-                "Implemented JDBC backend to query PostgreSQL database"
-            ],
-            "Skills": [
-                "React",
-                "TypeScript",
-                "Java",
-                "Spring Boot",
-                "PostgreSQL",
-                "JDBC",
-                "Git"
-            ]
-        }
-    ],
-    "Work Experience": {
-        "Roles": [
+    "experience": {
+        "roles": [
             {
-                "Company": "Sandia National Laboratories",
-                "Role": "AI/ML Intern",
-                "Contributions": [
-                    "Developed knowledge graph (KG) generation pipeline with internal LLM microservices",
-                    "Extracted 30+ domain-specific seed topics from text corpus with BERTopic for KG subgraph creation",
-                    "Achieved100%schema-compliantLLMoutputsviaprompt engineering andgrammar-contrained decoding",
-                    "Packaged KG generation logic into reusable, object-oriented Python modules used by 30 developers"
+                "company": "Qatar Computing Research Institute",
+                "role": "Artificial Intelligence Intern",
+                "contributions": [
+                    "Optimized machine learning models (Inception v3, EfficientNet, ResNet) on a dataset of 60,000+ images for DNA Enhancer Sequence Prediction, achieving 98.8% testing accuracy on unseen data.",
+                    "Conducted extensive experiments comparing the accuracy of different models and tuning various hyperparameters to enhance overall model performance.",
+                    "Applied advanced image processing techniques (movement probability matrix, wave transforms) to enhance model generalizability while maintaining high performance."
                 ],
-                "Start Date": "08-2024",
-                "End Date": "12-2024",
-                "Skills": [
-                    "Knowledge Graph Generation",
-                    "LLM Microservices",
-                    "BERTopic",
-                    "Python"
+                "start_date": "05-2024",
+                "end_date": "07-2024",
+                "skills": [
+                    "machine learning",
+                    "image processing",
+                    "hyperparameter tuning"
                 ]
             },
             {
-                "Company": "Sandia National Laboratories",
-                "Role": "Software Engineering Intern",
-                "Contributions": [
-                    "Redesigned 30 year old Java data analysis suite architecture, cutting developer onboarding time by 3 weeks",
-                    "Used MATLAB profiler to find bottleneck in data preprocessing script, leading to 90% execution time reduction",
-                    "Built Java class to interface with Javalin REST API, enabling multithreaded network communication",
-                    "Reduced logic errors by 50% via integration and regression testing in Jenkins CI/CD pipeline"
+                "company": "Qatar Computing Research Institute",
+                "role": "Arabic Language Technologies Intern",
+                "contributions": [
+                    "Trained and tested 10+ Machine Learning models on a 30,000+ Arabic news articles to evaluate the factual accuracy of user claims.",
+                    "Utilized the company\u2019s web API for lemmatization and spell checking during data preprocessing.",
+                    "Developed an application using React and Flask, providing an intuitive user interface for users to interact with the machine learning models."
                 ],
-                "Start Date": "05-2024",
-                "End Date": "08-2024",
-                "Skills": [
-                    "Java",
-                    "MATLAB",
-                    "Javalin REST API",
-                    "Jenkins CI/CD"
+                "start_date": "05-2023",
+                "end_date": "07-2023",
+                "skills": [
+                    "machine learning",
+                    "natural language processing",
+                    "web development"
                 ]
             },
             {
-                "Company": "Texas A&M University",
-                "Role": "Undergraduate Teaching Assistant",
-                "Contributions": [
-                    "Leading data structures & algorithms recitations for 60 students semiweekly",
-                    "Mentoring 15+ students weekly in C++ assignments, leading to 80% reduction in assignment errors",
-                    "Teaching students core CS concepts including vectors, trees, graphs, sorting algorithms, and recursion"
+                "company": "Department of Engineering",
+                "role": "Python Course Peer Teacher",
+                "contributions": [
+                    "Assisted the professor in teaching 100+ students Python through small group sessions, explaining key concepts in the context of lab assignments.",
+                    "Led office hours, assisting multiple students in debugging their code simultaneously, and enhancing their problem-solving skills in Python"
                 ],
-                "Start Date": "01-2024",
-                "End Date": "Present",
-                "Skills": [
-                    "Data Structures & Algorithms",
-                    "C++"
-                ]
-            },
-            {
-                "Company": "Vertical Automation and Information Technology",
-                "Role": "Full Stack Developer Intern",
-                "Contributions": [
-                    "Built CRM system with ASP.NET MVC serving 10 users, improving employee efficiency by 50%",
-                    "Optimized MySQL database performance by eliminating 1,000 duplicate records, improving query speed by 10%",
-                    "Designed scalable SQL database architecture to support complex entity relationships",
-                    "Created role-based authorization system with Entity Framework to facilitate project management for managers"
-                ],
-                "Start Date": "06-2022",
-                "End Date": "08-2022",
-                "Skills": [
-                    "ASP.NET MVC",
-                    "MySQL",
-                    "Entity Framework"
-                ]
-            },
-            {
-                "Company": "Vertical Automation and Information Technology",
-                "Role": "Full Stack Developer Intern",
-                "Contributions": [
-                    "Built CRM system with ASP.NET MVC serving 10 users, improving employee efficiency by 50%",
-                    "Optimized MySQL database performance by eliminating 1,000 duplicate records, improving query speed by 10%",
-                    "Designed scalable SQL database architecture to support complex entity relationships",
-                    "Created role-based authorization system with Entity Framework to facilitate project management for managers"
-                ],
-                "Start Date": "05-2023",
-                "End Date": "08-2023",
-                "Skills": [
-                    "ASP.NET MVC",
-                    "MySQL",
-                    "Entity Framework"
+                "start_date": "08-2023",
+                "end_date": "12-2023",
+                "skills": [
+                    "python teaching",
+                    "peer mentoring"
                 ]
             }
         ],
-        "YOE": 2.25
-    }
+        "yoe": 1.25
+    },
+    "projects": [
+        {
+            "name": "Pandas POS System",
+            "contributions": [
+                "Developing a POS system for Pandas that is compliant with WCAG 2.1 accessibility standards using React for the frontend and Django for the backend, connected to AWS.",
+                "Implementing the Agile development methodology, focusing on usability testing and accessibility, while creating a multi-user application with interfaces for managers, cashiers, and customers via a self-service kiosk.",
+                "Integrating third-party APIs, including Google OAuth2 for authentication, Google Translate for translation, and a weather service to enhance the user experience."
+            ],
+            "skills": [
+                "React",
+                "Django",
+                "AWS",
+                "Agile development methodology",
+                "WCAG 2.1 accessibility standards"
+            ]
+        },
+        {
+            "name": "Students For Refugees Website",
+            "contributions": [
+                "Developed and maintained the StudentsForRefugees.org website using React JS and Tailwind CSS, serving as a central hub for information, events, and updates for the organization\u2019s 10+ branches.",
+                "Integrated a backend in Go, making API calls to Google Drive and Google Calendar, as well as integrating Stripe for donations, successfully raising over $1000."
+            ],
+            "skills": [
+                "React JS",
+                "Tailwind CSS",
+                "Go",
+                "Google Drive",
+                "Google Calendar",
+                "Stripe"
+            ]
+        }
+    ],
+    "leadership": {
+        "org": "Students For Refugees",
+        "role": "Head Developer",
+        "contributions": [
+            "Manage the Google Nonprofit Workspace, overseeing user account creation, drive management, and overall administration of Google Workspace services, including access control, data storage policies, and app integration.",
+            "Organized and supervised 10+ multi-branch events in the Houston metropolitan area, including food drives, health fairs, and mental health awareness campaigns for refugees."
+        ]
+    },
+    "research": null,
+    "skills": [
+        "Python",
+        "Java",
+        "JavaScript",
+        "C++",
+        "Go",
+        "SQL",
+        "R",
+        "HTML",
+        "CSS",
+        "React",
+        "Node.js",
+        "Express.js",
+        "Django",
+        "Flask",
+        "Selenium",
+        "JavaFX",
+        "PyTorch",
+        "Tailwind CSS",
+        "Agile",
+        "Waterfall",
+        "Git",
+        "AWS",
+        "Linux",
+        "PostgreSQL",
+        "VS Code",
+        "PyCharm",
+        "IntelliJ",
+        "Oracle VM VirtualBox"
+    ]
 }

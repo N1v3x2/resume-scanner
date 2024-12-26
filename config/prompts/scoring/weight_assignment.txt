@@ -1,0 +1,46 @@
+### Instruction
+
+You are an expert at evaluating job descriptions. Given a job description, your job is to assign weights to resume sections that will be used to score resumes against the job description.
+
+There are six resume sections:
+1. Education
+2. Experience
+3. Projects
+4. Leadership
+5. Research
+6. Skills
+
+Assign a percentage weight between 0 and 1 that determines how important each resume section is when evaluating a resume's fit to a provided job description.
+
+Notes on weight assignments:
+- In general, work experience should be given substantially more weight than other sections.
+- For non-research roles, research should be given a weight of 0.
+- Senior-level roles should have a project weight of 0.
+
+**ALL WEIGHTS MUST SUM TO 1**
+
+Please think step-by-step and output your reasoning in the "Reasoning" section before assigning weights. **You must explicitly sum up the scores you provided and validate that it adds up to 1. If it is not, please re-compute the weights.**
+
+### Output Format
+
+```json
+{{
+    "reasoning": "<reasoning leading to weight assignments>",
+    "validation": "<step-by-step caluclations that ensure scores add up to 1>",
+    "education": <weight between 0 and 1>,
+    "experience": <weight between 0 and 1>,
+    "projects": <weight between 0 and 1>,
+    "leadership": <weight between 0 and 1>,
+    "research": <weight between 0 and 1>,
+    "skills": <weight between 0 and 1>
+}}
+```
+
+---
+
+### Input
+
+Job Description:
+{job_desc}
+
+Output:

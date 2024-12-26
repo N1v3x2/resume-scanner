@@ -1,14 +1,15 @@
 from pdf2image import convert_from_path
 from pytesseract import pytesseract
+from pydantic import BaseModel, RootModel
 
-from ..utils.with_structured_output import with_structured_output
+from ..utils.decode import decode_with_ollama
 from ..utils.extract_pdf_text import extract_pdf_text
 from .schemas import Resume
 
 with open("../config/prompts/parsing/initial_extraction.txt", "r") as file:
     INITIAL_EXTRACTION_TEMPLATE = file.read()
 
-def parse_resume_sections(resume_path: str) -> dict:
+def parse_resume_sections(resume_path: str) -> (BaseModel | RootModel):
     resume = extract_pdf_text(resume_path)
     
     # Unable to directly extract text from image-based PDF
@@ -16,7 +17,7 @@ def parse_resume_sections(resume_path: str) -> dict:
         pdf_images = convert_from_path(resume_path, dpi=300)
         resume = pytesseract.image_to_string(pdf_images[0])
     
-    parsed_sections = with_structured_output(
+    parsed_sections = decode_with_ollama(
         prompt=INITIAL_EXTRACTION_TEMPLATE.format(resume_text=resume),
         schema=Resume
     )
