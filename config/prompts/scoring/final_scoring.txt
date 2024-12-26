@@ -72,8 +72,8 @@ If a section is missing, assign a score of 0 for that section.
 
 ### Input
 
-Work Experience:
-```{work_experience}```
+Experience:
+```{experience}```
 
 Education:
 ```{education}```

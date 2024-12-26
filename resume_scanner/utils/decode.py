@@ -31,6 +31,7 @@ def decode_with_ollama(
         format=schema.model_json_schema(),
         options={
             "temperature": 0,
+            "top_p": 0.1,
             "num_ctx": 4096
         }
     )
@@ -65,7 +66,9 @@ def decode_with_openai(
                 "content": prompt
             }
         ],
-        response_format=schema
+        response_format=schema,
+        temperature=0,
+        top_p=0.7
     )
     
     return response.choices[0].message.parsed
