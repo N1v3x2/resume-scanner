@@ -1,6 +1,11 @@
 .env
 **/__pycache__
-input/**
-!input/.gitkeep
-output/**
-!output/.gitkeep
+**/.DS_Store
+
+data/input/jobs/**
+data/input/resumes/**
+!data/input/jobs/.gitkeep
+!data/input/resumes/.gitkeep
+
+data/output/**
+!data/output/.gitkeep

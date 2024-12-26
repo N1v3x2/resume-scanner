@@ -1,0 +1,111 @@
+{'final_score': 0.7,
+ 'resume_eval': {'education': {'alignment': 5,
+                               'comment': 'The candidate is pursuing a '
+                                          'Bachelor of Science in Computer '
+                                          'Science, which directly meets the '
+                                          'educational requirements of the '
+                                          'internship. The honors and relevant '
+                                          'coursework further strengthen this '
+                                          'alignment.'},
+                 'experience': {'comment': 'The candidate has relevant '
+                                           'experience in machine learning and '
+                                           'software development, which aligns '
+                                           "well with the internship's focus "
+                                           'on technology and programming. The '
+                                           'contributions demonstrate '
+                                           'substantial work on real-world '
+                                           'projects, particularly in '
+                                           'optimizing models and developing '
+                                           'applications, which is valuable '
+                                           'for the role.',
+                                'depth': 4,
+                                'impact': 4,
+                                'relevance': 4},
+                 'leadership': {'comment': 'The leadership role as Head '
+                                           'Developer demonstrates some level '
+                                           'of responsibility and initiative, '
+                                           'but lacks specific metrics or '
+                                           'outcomes that would enhance its '
+                                           'impact. Organizing events is a '
+                                           'positive aspect, but more '
+                                           'technical leadership experience '
+                                           'would be beneficial.',
+                                'depth': 3,
+                                'impact': 3,
+                                'relevance': 3},
+                 'overall_comment': 'The candidate presents a strong resume '
+                                    'with relevant experience and education '
+                                    'for the Technology Internship Program at '
+                                    'Capital One. The experience in machine '
+                                    'learning and software development is '
+                                    'particularly valuable, and the '
+                                    'educational background aligns perfectly '
+                                    'with the requirements. However, the '
+                                    'leadership section could be strengthened '
+                                    'with more technical leadership examples, '
+                                    'and the absence of research experience is '
+                                    'noted. Overall, the candidate is '
+                                    'well-suited for the internship, with a '
+                                    'few areas for improvement.',
+                 'projects': {'comment': 'The projects showcase practical '
+                                         'application of skills in web '
+                                         'development and software '
+                                         'engineering, particularly with '
+                                         'technologies like React and Django. '
+                                         'The focus on accessibility and user '
+                                         'experience is a plus, aligning with '
+                                         "the internship's emphasis on "
+                                         'innovative tech solutions.',
+                              'depth': 4,
+                              'impact': 4,
+                              'relevance': 4},
+                 'research': {'comment': 'No research experience is provided, '
+                                         'which is not a requirement for the '
+                                         'internship but could enhance the '
+                                         "candidate's profile.",
+                              'depth': 0,
+                              'impact': 0,
+                              'relevance': 0},
+                 'skills': {'alignment': 4,
+                            'comment': 'The candidate possesses a strong set '
+                                       'of programming skills relevant to the '
+                                       'internship, including Python, Java, '
+                                       'JavaScript, and Go. However, there is '
+                                       'a lack of specific mention of some '
+                                       'preferred technologies like C# or '
+                                       '.NET, which could improve alignment.'}},
+ 'resume_weights': {'education': 0.2,
+                    'experience': 0.4,
+                    'leadership': 0.1,
+                    'projects': 0.2,
+                    'reasoning': 'This job description is for a Technology '
+                                 'Internship Program, which is targeted at '
+                                 "students currently pursuing a Bachelor's "
+                                 'degree or higher. Given that this is an '
+                                 'internship role, education will be '
+                                 'important, but not as heavily weighted as '
+                                 'experience, since candidates are expected to '
+                                 'have limited professional experience. '
+                                 'Experience is still crucial, as any relevant '
+                                 'internships or projects will be highly '
+                                 'valued. Projects will have a moderate weight '
+                                 'since entry-level candidates may have '
+                                 'academic or personal projects to showcase '
+                                 'their skills. Leadership is less critical '
+                                 'for an internship role, but some weight is '
+                                 'still appropriate for candidates who have '
+                                 'demonstrated leadership in academic or '
+                                 'extracurricular settings. Research is not '
+                                 'relevant for this role, so it will receive a '
+                                 'weight of 0. Skills are very important, '
+                                 'especially technical skills related to '
+                                 'programming and software development, so '
+                                 'this section will receive a significant '
+                                 'weight. Overall, the weights reflect the '
+                                 'importance of education, experience, and '
+                                 'skills for this internship position.',
+                    'research': 0.0,
+                    'skills': 0.1,
+                    'validation': 'Education: 0.2 + Experience: 0.4 + '
+                                  'Projects: 0.2 + Leadership: 0.1 + Research: '
+                                  '0 + Skills: 0.1 = 1.0'}}
