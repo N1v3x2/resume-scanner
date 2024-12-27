@@ -1,4 +1,5 @@
-from pydantic import BaseModel, RootModel
+from pydantic import BaseModel
+from typing import Optional
 
 # Initial resume section parsing
 class Resume(BaseModel):
@@ -14,7 +15,7 @@ class School(BaseModel):
     name: str
     majors: list[str]
     minors: list[str]
-    gpa: float = None
+    gpa: Optional[float] = None
     grad_year: int
     honors: list[str]
     coursework: list[str]
@@ -69,9 +70,9 @@ class Skills(BaseModel):
 
 # Final parsed resume info
 class ResumeInfo(BaseModel):
-    education: Education | None = None
-    experience: Experiences | None = None
-    projects: Projects | None = None
-    leadership: Leadership | None = None
-    research: Research | None = None
-    skills: Skills | None = None
+    education: Optional[Education] = None
+    experience: Optional[Experiences] = None
+    projects: Optional[Projects] = None
+    leadership: Optional[Leadership] = None
+    research: Optional[Research] = None
+    skills: Optional[Skills] = None
