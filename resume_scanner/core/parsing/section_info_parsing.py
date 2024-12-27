@@ -2,19 +2,19 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from ..utils.decode import decode_with_openai
-from ..schemas.parsing_schemas import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
+from ...models.parsing import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
 
-with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
+with open("config/prompts/parsing/education_extraction.txt", "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/experience_extraction.txt", "r") as file:
+with open("config/prompts/parsing/experience_extraction.txt", "r") as file:
     EXPERIENCE_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/projects_extraction.txt", "r") as file:
+with open("config/prompts/parsing/projects_extraction.txt", "r") as file:
     PROJECTS_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/leadership_extraction.txt", "r") as file:
+with open("config/prompts/parsing/leadership_extraction.txt", "r") as file:
     LEADERSHIP_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/research_extraction.txt", "r") as file:
+with open("config/prompts/parsing/research_extraction.txt", "r") as file:
     RESEARCH_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/skills_extraction.txt", "r") as file:
+with open("config/prompts/parsing/skills_extraction.txt", "r") as file:
     SKILLS_EXTRACTION_TEMPLATE = file.read()
 
 def parse_section_info(resume_sections: Resume) -> ResumeInfo:
@@ -78,7 +78,8 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
             except Exception as e:
                 print(f"Error when parsing resume section info: {e}")
     
-    with open("../data/output/parsed_resume_info.json", "w") as file:
-        json.dump(parsed_info.model_dump(), file, indent=4)
+    # TODO: cache query results
+    # with open("../data/output/parsed_resume_info.json", "w") as file:
+    #     json.dump(parsed_info.model_dump(), file, indent=4)
     
     return parsed_info

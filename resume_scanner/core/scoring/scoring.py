@@ -1,12 +1,12 @@
 import json
 
 from ..utils.decode import decode_with_openai
-from ..schemas.parsing_schemas import ResumeInfo
-from ..schemas.scoring_schemas import ResumeEvaluation, ResumeWeights, ScoredResume
+from ...models.parsing import ResumeInfo
+from ...models.scoring import ResumeEvaluation, ResumeWeights, ScoredResume
 
-with open("../config/prompts/scoring/weight_assignment.txt", "r") as file:
+with open("config/prompts/scoring/weight_assignment.txt", "r") as file:
     WEIGHT_ASSIGNMENT_TEMPLATE = file.read()
-with open("../config/prompts/scoring/final_scoring.txt", "r") as file:
+with open("config/prompts/scoring/final_scoring.txt", "r") as file:
     FINAL_SCORING_TEMPLATE = file.read()
     
     
@@ -59,7 +59,8 @@ def score_resume(resume_info: ResumeInfo, job_desc: str) -> ScoredResume:
     final_score = round(final_score, 2)
     final_output = ScoredResume(resume_eval=eval, resume_weights=weights, final_score=final_score)
     
-    with open("../data/output/resume_evaluation.json", "w") as file:
-        json.dump(final_output.model_dump(), file, indent=4)
+    # TODO: cache query results
+    # with open("../data/output/resume_evaluation.json", "w") as file:
+    #     json.dump(final_output.model_dump(), file, indent=4)
         
     return final_output
