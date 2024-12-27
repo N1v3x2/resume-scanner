@@ -68,7 +68,7 @@ def decode_with_openai(
         ],
         response_format=schema,
         temperature=0,
-        top_p=0.7
+        top_p=0.1
     )
     
     return response.choices[0].message.parsed

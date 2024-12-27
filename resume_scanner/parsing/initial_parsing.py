@@ -1,7 +1,7 @@
 from pdf2image import convert_from_path
 from pytesseract import pytesseract
 
-from ..utils.decode import decode_with_ollama
+from ..utils.decode import decode_with_openai
 from ..utils.extract_pdf_text import extract_pdf_text
 from ..schemas.parsing_schemas import Resume
 
@@ -16,7 +16,7 @@ def parse_resume_sections(resume_path: str) -> Resume:
         pdf_images = convert_from_path(resume_path, dpi=300)
         resume = pytesseract.image_to_string(pdf_images[0])
     
-    parsed_sections: Resume = decode_with_ollama(
+    parsed_sections: Resume = decode_with_openai(
         prompt=INITIAL_EXTRACTION_TEMPLATE.format(resume_text=resume),
         schema=Resume
     )
