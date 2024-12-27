@@ -1,7 +1,7 @@
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from ..utils.decode import decode_with_ollama
+from ..utils.decode import decode_with_openai
 from ..schemas.parsing_schemas import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
 
 with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
@@ -25,42 +25,42 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
 
         if resume_sections.education:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=EDUCATION_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.education), 
                 schema=Education
             )] = "education"
         
         if resume_sections.experience:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=EXPERIENCE_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.experience),
                 schema=Experiences
             )] = "experience"
         
         if resume_sections.projects:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=PROJECTS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.projects),
                 schema=Projects
             )] = "projects"
         
         if resume_sections.leadership:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.leadership),
                 schema=Leadership
             )] = "leadership"
         
         if resume_sections.research:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=RESEARCH_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.research),
                 schema=Research
             )] = "research"
             
         if resume_sections.skills:
             futures[executor.submit(
-                decode_with_ollama,
+                decode_with_openai,
                 prompt=SKILLS_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.skills),
                 schema=Skills
             )] = "skills"
@@ -68,7 +68,13 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
         for future in as_completed(futures):
             try:
                 section = futures[future]
-                setattr(parsed_info, section, future.result(timeout=60))
+                parsed_data = future.result(timeout=60)
+                
+                # Handle "root" models with only a `data` attribute
+                if hasattr(parsed_info, "data"):
+                    parsed_data = parsed_data.data
+                
+                setattr(parsed_info, section, parsed_data)
             except Exception as e:
                 print(f"Error when parsing resume section info: {e}")
     

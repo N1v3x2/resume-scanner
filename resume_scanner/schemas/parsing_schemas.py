@@ -19,8 +19,8 @@ class School(BaseModel):
     honors: list[str]
     coursework: list[str]
 
-class Education(RootModel[list[School]]):
-    pass
+class Education(BaseModel):
+    data: list[School]
 
 # Experience
 class Experience(BaseModel):
@@ -41,8 +41,8 @@ class Project(BaseModel):
     contributions: list[str]
     skills: list[str]
     
-class Projects(RootModel[list[Project]]):
-    pass
+class Projects(BaseModel):
+    data: list[Project]
 
 # Leadership
 class Leadership(BaseModel):
@@ -64,8 +64,8 @@ class Research(BaseModel):
     publications: list[str]
 
 # Skills
-class Skills(RootModel[list[str]]):
-    pass
+class Skills(BaseModel):
+    data: list[str]
 
 # Final parsed resume info
 class ResumeInfo(BaseModel):

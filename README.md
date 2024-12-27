@@ -46,7 +46,9 @@ A score of 1 indicates perfect alignment between the resume and job description,
 - [x] Figure out important features for resume scoring
 - [x] Figure out how to parse important sections of job description (Qualifications, Preferred Experience, Education Requirements, etc.)
 - [x] Add resume feedback
+- [ ] Try out Groq for fast inferencing
 - [ ] Serve backend services via REST API or GraphQL?
+- [ ] Cache query results with Redis
 - [ ] Create web interface for user to upload resume and job description
 - [ ] Host backend on Oracle Cloud via Docker containerization + Kubernetes
 
