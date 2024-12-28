@@ -1,13 +1,13 @@
 from pdf2image import convert_from_bytes
 from pytesseract import pytesseract
-import base64
 import io
 
-from ..utils.decode import decode_with_openai
-from ..utils.extract_pdf_text import extract_pdf_text
-from ...models.parsing import Resume
+from app.core.utils.decode import decode_with_openai
+from app.core.utils.extract_pdf_text import extract_pdf_text
+from app.models.parsing import Resume
+from app.core.config import INITIAL_EXTRACTION_TXT
 
-with open("config/prompts/parsing/initial_extraction.txt", "r") as file:
+with open(INITIAL_EXTRACTION_TXT, "r") as file:
     INITIAL_EXTRACTION_TEMPLATE = file.read()
 
 def parse_resume_sections(resume_bytes: bytes) -> Resume:

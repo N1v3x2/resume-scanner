@@ -1,7 +1,7 @@
 import strawberry
 from strawberry.file_uploads import Upload
 
-from ..models.parsing import (
+from app.models.parsing import (
     School,
     Education,
     Experience,
@@ -14,16 +14,15 @@ from ..models.parsing import (
     Skills,
     ResumeInfo,
 )
-from ..models.scoring import (
+from app.models.scoring import (
     SectionScore,
     ReducedSectionScore,
     ResumeEvaluation,
     ResumeWeights,
     ScoredResume
 )
-from ..core.parsing.parsing import parse_resume
-from ..core.scoring.scoring import score_resume
-
+from app.core.parsing.parsing import parse_resume
+from app.core.scoring.scoring import score_resume
 
 ##### Parsing models #####
 @strawberry.experimental.pydantic.type(model=School, all_fields=True)
