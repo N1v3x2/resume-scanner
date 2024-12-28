@@ -1,20 +1,36 @@
-import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from ..utils.decode import decode_with_openai
-from ...models.parsing import Resume, Education, Experiences, Projects, Research, LeadershipPositions, Skills, ResumeInfo
+from app.core.utils.decode import decode_with_openai
+from app.models.parsing import (
+    Resume,
+    Education,
+    Experiences,
+    Projects,
+    Research,
+    LeadershipPositions,
+    Skills,
+    ResumeInfo
+)
+from app.core.config import (
+    EDUCATION_EXTRACTION_TXT,
+    EXPERIENCE_EXTRACTION_TXT,
+    PROJECTS_EXTRACTION_TXT,
+    LEADERSHIP_EXTRACTION_TXT,
+    RESEARCH_EXTRACTION_TXT,
+    SKILLS_EXTRACTION_TXT
+)
 
-with open("config/prompts/parsing/education_extraction.txt", "r") as file:
+with open(EDUCATION_EXTRACTION_TXT, "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
-with open("config/prompts/parsing/experience_extraction.txt", "r") as file:
+with open(EXPERIENCE_EXTRACTION_TXT, "r") as file:
     EXPERIENCE_EXTRACTION_TEMPLATE = file.read()
-with open("config/prompts/parsing/projects_extraction.txt", "r") as file:
+with open(PROJECTS_EXTRACTION_TXT, "r") as file:
     PROJECTS_EXTRACTION_TEMPLATE = file.read()
-with open("config/prompts/parsing/leadership_extraction.txt", "r") as file:
+with open(LEADERSHIP_EXTRACTION_TXT, "r") as file:
     LEADERSHIP_EXTRACTION_TEMPLATE = file.read()
-with open("config/prompts/parsing/research_extraction.txt", "r") as file:
+with open(RESEARCH_EXTRACTION_TXT, "r") as file:
     RESEARCH_EXTRACTION_TEMPLATE = file.read()
-with open("config/prompts/parsing/skills_extraction.txt", "r") as file:
+with open(SKILLS_EXTRACTION_TXT, "r") as file:
     SKILLS_EXTRACTION_TEMPLATE = file.read()
 
 def parse_section_info(resume_sections: Resume) -> ResumeInfo:

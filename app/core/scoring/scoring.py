@@ -1,14 +1,12 @@
-import json
+from app.core.utils.decode import decode_with_openai
+from app.models.parsing import ResumeInfo
+from app.models.scoring import ResumeEvaluation, ResumeWeights, ScoredResume
+from app.core.config import WEIGHT_ASSIGNMENT_TXT, FINAL_SCORING_TXT
 
-from ..utils.decode import decode_with_openai
-from ...models.parsing import ResumeInfo
-from ...models.scoring import ResumeEvaluation, ResumeWeights, ScoredResume
-
-with open("config/prompts/scoring/weight_assignment.txt", "r") as file:
+with open(WEIGHT_ASSIGNMENT_TXT, "r") as file:
     WEIGHT_ASSIGNMENT_TEMPLATE = file.read()
-with open("config/prompts/scoring/final_scoring.txt", "r") as file:
+with open(FINAL_SCORING_TXT, "r") as file:
     FINAL_SCORING_TEMPLATE = file.read()
-    
     
 def calculate_score(eval_data, weight):
     """
