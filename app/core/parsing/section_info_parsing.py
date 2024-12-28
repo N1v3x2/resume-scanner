@@ -1,20 +1,36 @@
-import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from ..utils.decode import decode_with_openai
-from ..schemas.parsing_schemas import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
+from app.core.utils.decode import decode_with_openai
+from app.models.parsing import (
+    Resume,
+    Education,
+    Experiences,
+    Projects,
+    Research,
+    LeadershipPositions,
+    Skills,
+    ResumeInfo
+)
+from app.core.config import (
+    EDUCATION_EXTRACTION_TXT,
+    EXPERIENCE_EXTRACTION_TXT,
+    PROJECTS_EXTRACTION_TXT,
+    LEADERSHIP_EXTRACTION_TXT,
+    RESEARCH_EXTRACTION_TXT,
+    SKILLS_EXTRACTION_TXT
+)
 
-with open("../config/prompts/parsing/education_extraction.txt", "r") as file:
+with open(EDUCATION_EXTRACTION_TXT, "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/experience_extraction.txt", "r") as file:
+with open(EXPERIENCE_EXTRACTION_TXT, "r") as file:
     EXPERIENCE_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/projects_extraction.txt", "r") as file:
+with open(PROJECTS_EXTRACTION_TXT, "r") as file:
     PROJECTS_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/leadership_extraction.txt", "r") as file:
+with open(LEADERSHIP_EXTRACTION_TXT, "r") as file:
     LEADERSHIP_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/research_extraction.txt", "r") as file:
+with open(RESEARCH_EXTRACTION_TXT, "r") as file:
     RESEARCH_EXTRACTION_TEMPLATE = file.read()
-with open("../config/prompts/parsing/skills_extraction.txt", "r") as file:
+with open(SKILLS_EXTRACTION_TXT, "r") as file:
     SKILLS_EXTRACTION_TEMPLATE = file.read()
 
 def parse_section_info(resume_sections: Resume) -> ResumeInfo:
@@ -48,7 +64,7 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
             futures[executor.submit(
                 decode_with_openai,
                 prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.leadership),
-                schema=Leadership
+                schema=LeadershipPositions
             )] = "leadership"
         
         if resume_sections.research:
@@ -71,14 +87,15 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
                 parsed_data = future.result(timeout=60)
                 
                 # Handle "root" models with only a `data` attribute
-                if hasattr(parsed_info, "data"):
+                if hasattr(parsed_data, "data"):
                     parsed_data = parsed_data.data
                 
                 setattr(parsed_info, section, parsed_data)
             except Exception as e:
                 print(f"Error when parsing resume section info: {e}")
     
-    with open("../data/output/parsed_resume_info.json", "w") as file:
-        json.dump(parsed_info.model_dump(), file, indent=4)
+    # TODO: cache query results
+    # with open("../data/output/parsed_resume_info.json", "w") as file:
+    #     json.dump(parsed_info.model_dump(), file, indent=4)
     
     return parsed_info
