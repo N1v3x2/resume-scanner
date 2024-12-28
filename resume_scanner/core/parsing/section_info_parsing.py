@@ -2,7 +2,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from ..utils.decode import decode_with_openai
-from ...models.parsing import Resume, Education, Experiences, Projects, Research, Leadership, Skills, ResumeInfo
+from ...models.parsing import Resume, Education, Experiences, Projects, Research, LeadershipPositions, Skills, ResumeInfo
 
 with open("config/prompts/parsing/education_extraction.txt", "r") as file:
     EDUCATION_EXTRACTION_TEMPLATE = file.read()
@@ -48,7 +48,7 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
             futures[executor.submit(
                 decode_with_openai,
                 prompt=LEADERSHIP_EXTRACTION_TEMPLATE.format(resume_text=resume_sections.leadership),
-                schema=Leadership
+                schema=LeadershipPositions
             )] = "leadership"
         
         if resume_sections.research:
@@ -71,7 +71,7 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
                 parsed_data = future.result(timeout=60)
                 
                 # Handle "root" models with only a `data` attribute
-                if hasattr(parsed_info, "data"):
+                if hasattr(parsed_data, "data"):
                     parsed_data = parsed_data.data
                 
                 setattr(parsed_info, section, parsed_data)

@@ -51,6 +51,9 @@ class Leadership(BaseModel):
     role: str
     contributions: list[str]
     
+class LeadershipPositions(BaseModel):
+    data: list[Leadership]
+    
 # Research
 class ResearchRole(BaseModel):
     institution: str
@@ -70,9 +73,9 @@ class Skills(BaseModel):
 
 # Final parsed resume info
 class ResumeInfo(BaseModel):
-    education: Optional[Education] = None
-    experience: Optional[Experiences] = None
-    projects: Optional[Projects] = None
-    leadership: Optional[Leadership] = None
-    research: Optional[Research] = None
-    skills: Optional[Skills] = None
+    education: Optional[list[School]]          = None
+    experience: Optional[Experiences]       = None
+    projects: Optional[list[Project]]       = None
+    leadership: Optional[list[Leadership]]  = None
+    research: Optional[Research]            = None
+    skills: Optional[list[str]]             = None

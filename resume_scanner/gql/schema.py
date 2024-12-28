@@ -1,6 +1,5 @@
 import strawberry
-from typing import NewType
-import base64
+from strawberry.file_uploads import Upload
 
 from ..models.parsing import (
     School,
@@ -24,6 +23,7 @@ from ..models.scoring import (
 )
 from ..core.parsing.parsing import parse_resume
 from ..core.scoring.scoring import score_resume
+
 
 ##### Parsing models #####
 @strawberry.experimental.pydantic.type(model=School, all_fields=True)
@@ -93,25 +93,22 @@ class ScoredResumeType:
     pass
 
 
-Base64 = strawberry.scalar(
-    NewType("Base64", bytes),
-    serialize=lambda v: base64.b64encode(v).decode("utf-8"),
-    parse_value=lambda v: base64.b64decode(v)
-)
-
 @strawberry.type
 class Query:
     @strawberry.field
     def hello_world(self) -> str:
         return "Hello World!"
 
+
 @strawberry.type
 class Mutation:
     @strawberry.mutation
-    def parse_resume(self, resume: Base64) -> ResumeInfoType:
-        return ResumeInfoType.from_pydantic(parse_resume(resume))
+    async def parse_resume(self, resume: Upload) -> ResumeInfoType:
+        resume_bytes = await resume.read()
+        return ResumeInfoType.from_pydantic(parse_resume(resume_bytes))
     
     @strawberry.mutation
-    def score_resume(self, resume: Base64, job_desc: str) -> ScoredResumeType:
-        parsed_resume = parse_resume(resume)
+    async def score_resume(self, resume: Upload, job_desc: str) -> ScoredResumeType:
+        resume_bytes = await resume.read()
+        parsed_resume = parse_resume(resume_bytes)
         return ScoredResumeType.from_pydantic(score_resume(parsed_resume, job_desc))
