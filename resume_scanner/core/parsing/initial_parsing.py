@@ -10,14 +10,14 @@ from ...models.parsing import Resume
 with open("config/prompts/parsing/initial_extraction.txt", "r") as file:
     INITIAL_EXTRACTION_TEMPLATE = file.read()
 
-def parse_resume_sections(b64_encoded_resume: bytes) -> Resume:
-    pdf_file_like = io.BytesIO(b64_encoded_resume)
+def parse_resume_sections(resume_bytes: bytes) -> Resume:
+    pdf_file_like = io.BytesIO(resume_bytes)
     
     resume = extract_pdf_text(pdf_file_like)
     
     # If unable to directly extract text from image-based PDF
     if not resume:
-        pdf_images = convert_from_bytes(b64_encoded_resume, dpi=300)
+        pdf_images = convert_from_bytes(resume_bytes, dpi=300)
         resume = pytesseract.image_to_string(pdf_images[0])
     
     parsed_sections: Resume = decode_with_openai(
