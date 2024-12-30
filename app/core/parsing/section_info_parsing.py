@@ -94,8 +94,4 @@ def parse_section_info(resume_sections: Resume) -> ResumeInfo:
             except Exception as e:
                 print(f"Error when parsing resume section info: {e}")
     
-    # TODO: cache query results
-    # with open("../data/output/parsed_resume_info.json", "w") as file:
-    #     json.dump(parsed_info.model_dump(), file, indent=4)
-    
     return parsed_info

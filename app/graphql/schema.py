@@ -24,6 +24,7 @@ from app.models.scoring import (
 from app.core.parsing.parsing import parse_resume
 from app.core.scoring.scoring import score_resume
 
+
 ##### Parsing models #####
 @strawberry.experimental.pydantic.type(model=School, all_fields=True)
 class SchoolType:
@@ -95,19 +96,18 @@ class ScoredResumeType:
 @strawberry.type
 class Query:
     @strawberry.field
-    def hello_world(self) -> str:
+    def placeholder(self) -> str:
         return "Hello World!"
 
 
 @strawberry.type
 class Mutation:
     @strawberry.mutation
-    async def parse_resume(self, resume: Upload) -> ResumeInfoType:
+    async def score_resume(self, resume: Upload, job_desc: str, info: strawberry.Info) -> ScoredResumeType:
         resume_bytes = await resume.read()
-        return ResumeInfoType.from_pydantic(parse_resume(resume_bytes))
-    
-    @strawberry.mutation
-    async def score_resume(self, resume: Upload, job_desc: str) -> ScoredResumeType:
-        resume_bytes = await resume.read()
-        parsed_resume = parse_resume(resume_bytes)
-        return ScoredResumeType.from_pydantic(score_resume(parsed_resume, job_desc))
+        redis_client = info.context["redis_client"]
+        
+        parsed_resume = parse_resume(resume_bytes, redis_client)
+        return ScoredResumeType.from_pydantic(
+            score_resume(parsed_resume, job_desc, redis_client)
+        )
