@@ -1,0 +1,13 @@
+# Development only
+data/
+notebooks/
+.env
+
+# Temporary Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Documentation
+README.md
+.gitignore
