@@ -1,3 +1,4 @@
+import os
 import strawberry
 import redis
 from fastapi import FastAPI, Depends
@@ -7,7 +8,10 @@ from graphql.validation import NoSchemaIntrospectionCustomRule
 
 from app.graphql.schema import Query, Mutation
 
-pool = redis.ConnectionPool(host="localhost", port=6379, db=0, max_connections=10)
+REDIS_HOST = os.getenv("REDIS_HOST")
+REDIS_PORT = os.getenv("REDIS_PORT")
+
+pool = redis.ConnectionPool(host=REDIS_HOST, port=REDIS_PORT, db=0, max_connections=10)
 
 def get_redis_client():
     return redis.Redis(connection_pool=pool)
