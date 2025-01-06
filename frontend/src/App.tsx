@@ -1,7 +1,7 @@
 import { FileUp, Send } from "lucide-react";
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
-import { useScoreResumeMutation } from "./__generated__/types";
+import { ScoreResumeMutation, useScoreResumeMutation } from "./__generated__/types";
 import { TailSpin } from "react-loader-spinner";
 import EvaluationModal from "./EvaluationModal";
 
@@ -20,6 +20,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [responseError, setResponseError] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
+  const [resumeEval, setResumeEval] = useState<ScoreResumeMutation | undefined>(undefined);
   const [scoreResume] = useScoreResumeMutation();
 
   const handleJobChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -35,13 +36,6 @@ export default function App() {
       ...formData,
       resume: resume ?? null,
     });
-  };
-
-  const resetFormData = () => {
-    setFormData({ job: "", resume: null });
-    if (fileUploadRef.current) {
-      fileUploadRef.current.value = "";
-    }
   };
 
   const validateForm = () => {
@@ -75,11 +69,14 @@ export default function App() {
           job: formData.job,
         },
       });
-      console.log(data);
-      resetFormData();
-      setShowModal(true);
+      if (data) {
+        setResumeEval(data);
+        setShowModal(true);
+      } else {
+        throw new Error("Received empty response.");
+      }
     } catch (error) {
-      console.log(error);
+      alert(error);
       setResponseError(error);
     } finally {
       setLoading(false);
@@ -94,7 +91,7 @@ export default function App() {
       </div>
       <form className="flex flex-col gap-3 w-5/6 p-8 rounded-lg bg-zinc-800">
         <div>
-          <label htmlFor="job" className="block mb-1 font-semibold text-2xl">
+          <label htmlFor="job" className="block mb-1 font-semibold text-2xl pb-1">
             Job Description
           </label>
           <textarea
@@ -159,8 +156,8 @@ export default function App() {
             Submit
           </button>
         </div>
-        {createPortal(
-          <EvaluationModal onClose={() => setShowModal(false)} />,
+        {showModal && createPortal(
+          <EvaluationModal resumeEval={resumeEval!} onClose={() => setShowModal(false)} />,
           document.getElementById("modal-root")!
         )}
       </form>
