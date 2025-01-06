@@ -1,5 +1,6 @@
 import strawberry
 from strawberry.file_uploads import Upload
+from typing import Any
 
 from app.models.parsing import (
     School,
