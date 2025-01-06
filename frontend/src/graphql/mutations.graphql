@@ -1,0 +1,49 @@
+mutation ScoreResume($file: Upload!, $job: String!) {
+  scoreResume(resume: $file, jobDesc: $job) {
+    resumeEval {
+      overallComment
+      education {
+        alignment
+        comment
+      }
+      experience {
+        depth
+        impact
+        relevance
+        comment
+      }
+      leadership {
+        depth
+        impact
+        relevance
+        comment
+      }
+      projects {
+        depth
+        impact
+        relevance
+        comment
+      }
+      research {
+        depth
+        impact
+        relevance
+        comment
+      }
+      skills {
+        alignment
+        comment
+      }
+    }
+    resumeWeights {
+      education
+      experience
+      projects
+      leadership
+      research
+      skills
+      reasoning
+    }
+    finalScore
+  }
+}

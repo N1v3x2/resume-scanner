@@ -2,9 +2,8 @@ import os
 import strawberry
 import redis
 from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from strawberry.fastapi import GraphQLRouter
-from strawberry.extensions import AddValidationRules
-from graphql.validation import NoSchemaIntrospectionCustomRule
 
 from app.graphql.schema import Query, Mutation
 
@@ -22,9 +21,6 @@ def get_context(redis_client=Depends(get_redis_client)):
 schema = strawberry.Schema(
     query=Query,
     mutation=Mutation,
-    extensions=[
-        AddValidationRules([NoSchemaIntrospectionCustomRule])
-    ]
 )
 
 graphql_app = GraphQLRouter(
@@ -36,3 +32,16 @@ graphql_app = GraphQLRouter(
 
 app = FastAPI()
 app.include_router(graphql_app, prefix="/graphql")
+
+origins = [
+    "http://localhost:5173",    # Vite
+    "http://localhost:3000"     # CRA/Next.js
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
