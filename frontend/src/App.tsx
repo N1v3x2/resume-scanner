@@ -76,7 +76,7 @@ export default function App() {
       }
     } catch (error) {
       alert(error);
-      console.log("URI:" + import.meta.env.VITE_BACKEND_URI);
+      console.log("URI:" + import.meta.env.VITE_BACKEND_URI``);
     } finally {
       setLoading(false);
     }

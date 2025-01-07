@@ -1,7 +1,6 @@
 # Build stage
 FROM node:20.18.0-slim AS builder
 
-# Inject the environment variable for React build
 ARG VITE_BACKEND_URI
 ENV VITE_BACKEND_URI=${VITE_BACKEND_URI}
 
