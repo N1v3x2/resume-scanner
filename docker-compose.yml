@@ -1,0 +1,32 @@
+name: resume-scanner
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_BACKEND_URI: http://localhost:8000/graphql
+    image: n1v3x/resume-scanner-api
+    depends_on:
+      - backend
+    ports:
+      - 8080:80
+
+  backend:
+    build:
+      context: ./backend
+    image: n1v3x/resume-scanner-client
+    depends_on:
+      - redis
+    env_file: backend/.env
+    ports:
+      - 8000:80
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      FRONTEND_ORIGIN: "http://localhost:8080"
+
+  redis:
+    image: redis:latest
+    expose:
+      - "6379"

@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Development-only
+codegen.ts
+.vscode/
+
+# Production
+dist
+
+# Non-development
+.gitignore
+eslint.config.js
+README.md

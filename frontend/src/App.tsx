@@ -18,7 +18,6 @@ export default function App() {
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
-  const [responseError, setResponseError] = useState<any>(null);
   const [showModal, setShowModal] = useState(false);
   const [resumeEval, setResumeEval] = useState<ScoreResumeMutation | undefined>(undefined);
   const [scoreResume] = useScoreResumeMutation();
@@ -77,7 +76,7 @@ export default function App() {
       }
     } catch (error) {
       alert(error);
-      setResponseError(error);
+      console.log("URI:" + import.meta.env.VITE_BACKEND_URI);
     } finally {
       setLoading(false);
     }

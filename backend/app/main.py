@@ -9,6 +9,7 @@ from app.graphql.schema import Query, Mutation
 
 REDIS_HOST = os.getenv("REDIS_HOST")
 REDIS_PORT = os.getenv("REDIS_PORT")
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN")
 
 pool = redis.ConnectionPool(host=REDIS_HOST, port=REDIS_PORT, db=0, max_connections=10)
 
@@ -34,8 +35,7 @@ app = FastAPI()
 app.include_router(graphql_app, prefix="/graphql")
 
 origins = [
-    "http://localhost:5173",    # Vite
-    "http://localhost:3000"     # CRA/Next.js
+    FRONTEND_ORIGIN
 ]
 
 app.add_middleware(
