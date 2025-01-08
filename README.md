@@ -29,7 +29,7 @@ A simple LLM-powered tool that evaluates how well your resume matches a job desc
 
 ## Live Demo
 
-https://github.com/user-attachments/assets/ba4883af-6846-4475-9ca9-c091f6f6acc4
+https://github.com/user-attachments/assets/9e4310c9-c998-414e-b4b8-0cc28acac74a
 
 ## How It Works
 
