@@ -11,6 +11,8 @@ A simple LLM-powered tool that evaluates how well your resume matches a job desc
 
 ## Live Demo
 
+[Video goes here]
+
 ## How It Works
 
 ### Resume Parsing
@@ -36,7 +38,7 @@ If a section is not present, it receives a 0; however, depending on the job desc
 
 Along with scores, the LLM also outputs human-interpretable feedback justifying each section's score in its JSON outputs. A sample output might look like:
 
-```json
+```
 "experience": {
     "relevance": 4,
     "depth": 4,
@@ -82,7 +84,9 @@ Where:
 
 ## Technical Documentation
 
-### Architecture Diagram
+### Data Flow Diagram
+
+![Data Flow Diagram](DFD.png)
 
 ### Tech Stack
 
