@@ -11,7 +11,7 @@ A simple LLM-powered tool that evaluates how well your resume matches a job desc
 
 ## Live Demo
 
-[Video goes here]
+https://github.com/user-attachments/assets/ba4883af-6846-4475-9ca9-c091f6f6acc4
 
 ## How It Works
 
