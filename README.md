@@ -86,7 +86,7 @@ Where:
 
 ### Data Flow Diagram
 
-![Data Flow Diagram](DFD.png)
+![Data Flow Diagram](dfd.png)
 
 ### Tech Stack
 
