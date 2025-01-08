@@ -2,6 +2,24 @@
 
 A simple LLM-powered tool that evaluates how well your resume matches a job description and provides feedback to improve your resume.
 
+## Table of Contents
+
+- [AI Resume Scanner](#ai-resume-scanner)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Live Demo](#live-demo)
+  - [How It Works](#how-it-works)
+    - [Resume Parsing](#resume-parsing)
+    - [Resume Section Evaluation](#resume-section-evaluation)
+    - [Weight Generation](#weight-generation)
+    - [Overall Scoring](#overall-scoring)
+  - [Technical Documentation](#technical-documentation)
+    - [Data Flow Diagram](#data-flow-diagram)
+    - [Tech Stack](#tech-stack)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+
 ## Features
 
 - **Web-Based Access:** access the entire application through your web browser
@@ -99,3 +117,31 @@ Where:
 - **Containerization:** Docker
 
 ## Getting Started
+
+### Prerequisites
+
+- Docker (v27)
+- OpenAI API Key
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone git@github.com:N1v3x2/resume-scanner.git
+cd resume-scanner
+```
+
+2. `cd` into `/backend` and create a `.env` file containing your OpenAI API key as the only environment variable
+
+```dotenv
+OPENAI_API_KEY=<your API key>
+```
+
+3. `cd` back to the root directory and start Docker Compose
+
+```bash
+docker compose up
+```
+
+4. Visit `http://localhost:8080` to see the application running.
